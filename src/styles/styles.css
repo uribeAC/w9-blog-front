@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #1a1919;
+}
+
 *,
 ::after,
 ::before {
@@ -6,11 +10,10 @@
 
 body {
   margin: 0;
+  font-family: "Outfit Variable", sans-serif;
+  background-color: #f8d943;
 }
 
-.main-container {
-  height: 100vh;
-  max-width: 1900px;
-  margin: 0 auto;
-  padding: 20px;
+h1 {
+  margin: 0;
 }
