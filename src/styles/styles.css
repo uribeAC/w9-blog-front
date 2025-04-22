@@ -1,5 +1,6 @@
 :root {
-  --primary-color: #1a1919;
+  --secondary-color: #1a1919;
+  --primary-color: #f8d943;
 }
 
 *,
@@ -11,9 +12,22 @@
 body {
   margin: 0;
   font-family: "Outfit Variable", sans-serif;
-  background-color: #f8d943;
+  background-color: var(--primary-color);
 }
 
 h1 {
   margin: 0;
+}
+
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
 }

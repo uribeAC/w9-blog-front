@@ -1,6 +1,6 @@
 .main-header {
   padding: 40px 20px;
-  border-bottom: 3px solid var(--primary-color);
+  border-bottom: 3px solid var(--secondary-color);
 }
 
 .header-container {
@@ -13,5 +13,5 @@
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: 900;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
