@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Layout from "./Layout";
 import { MemoryRouter } from "react-router";
+import Layout from "./Layout";
 
 describe("Given the Header component", () => {
   describe("When it renders", () => {
