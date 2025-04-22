@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import Navigation from "../Navigation/Navigation";
 
 const Header: React.FC = () => {
   return (
@@ -7,6 +8,7 @@ const Header: React.FC = () => {
       <div className="header-container">
         <h1 className="page-title">Aliset comiendo por el mundo</h1>
       </div>
+      <Navigation />
     </header>
   );
 };
