@@ -1,10 +1,11 @@
-.navigation-links {
+.navigation {
   font-size: 1.8rem;
   font-family: inherit;
 }
 
-.navigation-link {
+.navigation__link {
   padding: 10px;
+  color: var(--secondary-color);
 
   &:hover {
     background-color: var(--secondary-color);

@@ -3,14 +3,10 @@ import "./Navigation.css";
 
 const Navigation: React.FC = () => {
   return (
-    <nav className="navigation-container">
-      <ul className="navigation-links">
-        <li>
-          <NavLink className="navigation-link" to="/posts">
-            Posts
-          </NavLink>
-        </li>
-      </ul>
+    <nav className="navigation">
+      <NavLink className="navigation__link" to="/posts">
+        Posts
+      </NavLink>
     </nav>
   );
 };
