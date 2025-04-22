@@ -1,0 +1,19 @@
+.navigation {
+  font-size: 1.8rem;
+  font-family: inherit;
+}
+
+.navigation__link {
+  padding: 10px;
+  color: var(--secondary-color);
+
+  &:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+}
+
+.active {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
