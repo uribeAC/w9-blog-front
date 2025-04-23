@@ -1,0 +1,19 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--secondary-color);
+  border-top: 2px solid var(--secondary-color);
+}
+
+.page-header__title {
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 1.4rem;
+}
+
+.page-header__counter {
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 1.4rem;
+}
