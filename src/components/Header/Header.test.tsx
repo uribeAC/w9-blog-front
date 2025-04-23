@@ -5,11 +5,7 @@ import Header from "./Header";
 describe("Given the Header component", () => {
   describe("When it renders", () => {
     test("Then it should show 'Aliset comiendo por el mundo' inside a level 1 heading", () => {
-      render(
-        <MemoryRouter>
-          <Header />
-        </MemoryRouter>,
-      );
+      render(<Header />, { wrapper: MemoryRouter });
 
       const appTitle = screen.getByRole("heading", {
         name: /aliset comiendo por el mundo/i,
@@ -20,11 +16,7 @@ describe("Given the Header component", () => {
     });
 
     test("Then it should show a 'Posts' link", () => {
-      render(
-        <MemoryRouter>
-          <Header />
-        </MemoryRouter>,
-      );
+      render(<Header />, { wrapper: MemoryRouter });
 
       const postsLink = screen.getByRole("link", {
         name: new RegExp("posts", "i"),
