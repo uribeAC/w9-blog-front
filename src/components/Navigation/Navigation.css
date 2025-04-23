@@ -1,6 +1,10 @@
 .navigation {
   font-size: 1.8rem;
   font-family: inherit;
+
+  @media (width < 500px) {
+    font-size: 1.2rem;
+  }
 }
 
 .navigation__link {
