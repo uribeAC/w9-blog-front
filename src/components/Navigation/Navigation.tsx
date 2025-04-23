@@ -4,7 +4,7 @@ import "./Navigation.css";
 const Navigation: React.FC = () => {
   return (
     <nav className="navigation">
-      <NavLink className="navigation__link" to="/posts">
+      <NavLink className="navigation__link" to="/">
         Posts
       </NavLink>
     </nav>
