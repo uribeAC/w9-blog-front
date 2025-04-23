@@ -11,14 +11,14 @@ const Header: React.FC = () => {
           <img
             className="page-title__image page-title__image--animated"
             src="huevito.webp"
-            alt="animated drawing of an egg pretending to be swimming"
+            alt="dibujo animado de un huevo frito haciendo ver que está nadando"
             width={105}
             height={105}
           />
           <img
             className="page-title__image page-title__image--reduced-motion"
             src="huevito-prefered-motion.webp"
-            alt="animated drawing of an egg pretending to be swimming"
+            alt="dibujo de un huevo frito haciendo ver que está nadando"
             width={105}
             height={105}
           />
