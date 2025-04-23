@@ -10,6 +10,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (width < 500px) {
+    gap: 15px;
+    padding: 20px;
+  }
+}
+
+.page-title-container {
+  display: flex;
+  align-items: center;
+
+  @media (width < 500px) {
+    flex-direction: column;
+  }
 }
 
 .page-title {
@@ -18,4 +32,28 @@
   font-size: 2rem;
   font-weight: 900;
   color: var(--secondary-color);
+
+  @media (width < 500px) {
+    font-size: 1.5rem;
+  }
+}
+
+.page-title__image {
+  @media (width < 500px) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.page-title__image--animated {
+  @media (prefers-reduced-motion) {
+    display: none;
+  }
+}
+
+.page-title__image--reduced-motion {
+  display: none;
+  @media (prefers-reduced-motion) {
+    display: block;
+  }
 }
