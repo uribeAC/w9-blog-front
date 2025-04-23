@@ -4,18 +4,33 @@ import Header from "./Header";
 
 describe("Given the Header component", () => {
   describe("When it renders", () => {
-    test("Then it should show 'Aliset comiendo por el mundo' inside a level 1 heading", () => {});
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>,
-    );
+    test("Then it should show 'Aliset comiendo por el mundo' inside a level 1 heading", () => {
+      render(
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>,
+      );
 
-    const appTitle = screen.getByRole("heading", {
-      name: /aliset comiendo por el mundo/i,
-      level: 1,
+      const appTitle = screen.getByRole("heading", {
+        name: /aliset comiendo por el mundo/i,
+        level: 1,
+      });
+
+      expect(appTitle).toBeVisible();
     });
 
-    expect(appTitle).toBeVisible();
+    test("Then it should show a 'Posts' link", () => {
+      render(
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>,
+      );
+
+      const postsLink = screen.getByRole("link", {
+        name: new RegExp("posts", "i"),
+      });
+
+      expect(postsLink).toBeVisible();
+    });
   });
 });

@@ -7,8 +7,8 @@ const Header: React.FC = () => {
     <header className="main-header">
       <div className="header-container">
         <h1 className="page-title">Aliset comiendo por el mundo</h1>
+        <Navigation />
       </div>
-      <Navigation />
     </header>
   );
 };
