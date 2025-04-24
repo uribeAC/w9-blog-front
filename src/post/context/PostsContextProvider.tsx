@@ -3,6 +3,7 @@ import { Post } from "../types";
 import { PostsContext } from "./PostsContext";
 import PostClient from "../client/PostClient";
 import PostsContextStructure from "./types";
+import { PostsData } from "../client/types";
 
 const PostsContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -12,12 +13,10 @@ const PostsContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const loadPostsByPage = useCallback(
     async (pageNumber?: number): Promise<void> => {
-      const posts: Post[] = await postClient.getPosts(pageNumber);
+      const postsData: PostsData = await postClient.getPosts(pageNumber);
 
-      const postsTotal = posts.length;
-
-      setPosts(posts);
-      setPostsTotal(postsTotal);
+      setPosts(postsData.posts);
+      setPostsTotal(postsData.postsTotal);
     },
     [postClient],
   );
