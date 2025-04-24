@@ -5,11 +5,7 @@ import Navigation from "./Navigation";
 describe("Given the Navigation component", () => {
   describe("When it renders", () => {
     test("Then it should show a 'Posts' link", () => {
-      render(
-        <MemoryRouter>
-          <Navigation />
-        </MemoryRouter>,
-      );
+      render(<Navigation />, { wrapper: MemoryRouter });
 
       const postsLink = screen.getByRole("link", { name: /posts/i });
 
