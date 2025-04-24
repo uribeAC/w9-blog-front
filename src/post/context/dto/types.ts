@@ -1,6 +1,6 @@
-export interface Post {
-  id: string;
-  publishDate: string;
+export interface PostDto {
+  _id: string;
+  publishDate: Date;
   author: string;
   title: string;
   imageUrl: string;
