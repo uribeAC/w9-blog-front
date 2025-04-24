@@ -25,7 +25,7 @@ describe("Given the Header component", () => {
       expect(postsLink).toBeVisible();
     });
 
-    test("Then it should show a 'dibujo animado de un huevo frito haciendo ver que está nadando'", () => {
+    test("Then it should show an animated drawing of a fried egg pretending to be swimming", () => {
       render(<Header />, { wrapper: MemoryRouter });
 
       const titleAnimatedImage = screen.getByAltText(
@@ -35,7 +35,7 @@ describe("Given the Header component", () => {
       expect(titleAnimatedImage).toBeVisible();
     });
 
-    test("Then it should show a 'dibujo de un huevo frito haciendo ver que está nadando'", () => {
+    test("Then it should show a drawing of a fried egg pretending to be swimming", () => {
       render(<Header />, { wrapper: MemoryRouter });
 
       const titleUnanimatedImage = screen.getByAltText(
