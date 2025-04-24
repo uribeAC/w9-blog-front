@@ -1,9 +1,9 @@
 .navigation {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-family: inherit;
 
-  @media (width < 500px) {
-    font-size: 1.2rem;
+  @media (width > 500px) {
+    font-size: 1.8rem;
   }
 }
 
