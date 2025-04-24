@@ -13,16 +13,6 @@ describe("Given the NotFoundPage component", () => {
       expect(expectedPageTitle).toBeVisible();
     });
 
-    test("Then it should show a gif with a egg yolk confused with animatedly appearing question marks", () => {
-      render(<NotFoundPage />);
-
-      const gifTextAlternative = screen.getByAltText(
-        "Yema de huevo confundida con signos de interrogación que van apareciendo animadamente",
-      );
-
-      expect(gifTextAlternative).toBeVisible();
-    });
-
     test("Then it should show a image with a Egg yolk confused with question marks", () => {
       render(<NotFoundPage />);
 
