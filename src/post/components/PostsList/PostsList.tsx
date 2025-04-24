@@ -9,7 +9,7 @@ const PostsList: React.FC<PostsListProps> = ({ posts }) => {
   return (
     <ul className="posts">
       {posts.map((post) => (
-        <li key={post._id}></li>
+        <li key={post.id}></li>
       ))}
     </ul>
   );
