@@ -7,7 +7,7 @@ describe("Given the NotFoundPage component", () => {
       render(<NotFoundPage />);
 
       const expectedPageTitle = screen.getByRole("heading", {
-        name: new RegExp("Page not found", "i"),
+        name: /page not found/i,
       });
 
       expect(expectedPageTitle).toBeVisible();
@@ -23,7 +23,7 @@ describe("Given the NotFoundPage component", () => {
       expect(gifTextAlternative).toBeVisible();
     });
 
-    test("Then it should show a image with a Egg yolk confused for question marks", () => {
+    test("Then it should show a image with a Egg yolk confused with question marks", () => {
       render(<NotFoundPage />);
 
       const imageTextAlternative = screen.getByAltText(
