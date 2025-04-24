@@ -3,8 +3,6 @@ import { Post } from "../types";
 import { PostsContext } from "./PostsContext";
 import PostClient from "../client/PostClient";
 import PostsContextStructure from "./types";
-import { PostDto } from "./dto/types";
-import { mapPostsDtoToPosts } from "./dto/mappers";
 
 const PostsContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -14,9 +12,7 @@ const PostsContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const loadPostsByPage = useCallback(
     async (pageNumber?: number): Promise<void> => {
-      const postsDto: PostDto[] = await postClient.getPosts(pageNumber);
-
-      const posts = mapPostsDtoToPosts(postsDto);
+      const posts: Post[] = await postClient.getPosts(pageNumber);
 
       const postsTotal = posts.length;
 
