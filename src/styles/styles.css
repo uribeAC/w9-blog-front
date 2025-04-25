@@ -1,6 +1,7 @@
 :root {
   --secondary-color: #1a1919;
   --primary-color: #f8d943;
+  --post-height: 300px;
 }
 
 *,
@@ -16,7 +17,10 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4,
+p {
   margin: 0;
 }
 
