@@ -29,7 +29,7 @@ describe("Given the Header component", () => {
       render(<Header />, { wrapper: MemoryRouter });
 
       const titleAnimatedImage = screen.getByAltText(
-        "dibujo animado de un huevo frito haciendo ver que está nadando",
+        /dibujo animado de un huevo frito haciendo ver que está nadando/i,
       );
 
       expect(titleAnimatedImage).toBeVisible();
@@ -39,7 +39,7 @@ describe("Given the Header component", () => {
       render(<Header />, { wrapper: MemoryRouter });
 
       const titleUnanimatedImage = screen.getByAltText(
-        "dibujo de un huevo frito haciendo ver que está nadando",
+        /dibujo de un huevo frito haciendo ver que está nadando/i,
       );
 
       expect(titleUnanimatedImage).toBeVisible();
