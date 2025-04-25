@@ -34,7 +34,7 @@ const PostCard: React.FC<PostCardProps> = ({
               </li>
             ))}
           </ul>
-          <span className="post__date">{publishDate}</span>
+          <span className="post__date">{publishDate.toDateString()}</span>
         </div>
       </div>
     </article>
