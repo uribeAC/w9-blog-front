@@ -1,5 +1,5 @@
 import { Post } from "../types";
-import { PostDto } from "../context/dto/types";
+import { PostDto } from "../dto/types";
 
 export interface PostClientStructure {
   getPosts: (pageNumber?: number) => Promise<PostsData>;
