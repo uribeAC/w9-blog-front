@@ -19,10 +19,30 @@ describe("Given the Header component", () => {
       render(<Header />, { wrapper: MemoryRouter });
 
       const postsLink = screen.getByRole("link", {
-        name: new RegExp("posts", "i"),
+        name: /posts/i,
       });
 
       expect(postsLink).toBeVisible();
+    });
+
+    test("Then it should show an animated drawing of a fried egg pretending to be swimming", () => {
+      render(<Header />, { wrapper: MemoryRouter });
+
+      const titleAnimatedImage = screen.getByAltText(
+        "dibujo animado de un huevo frito haciendo ver que está nadando",
+      );
+
+      expect(titleAnimatedImage).toBeVisible();
+    });
+
+    test("Then it should show a drawing of a fried egg pretending to be swimming", () => {
+      render(<Header />, { wrapper: MemoryRouter });
+
+      const titleUnanimatedImage = screen.getByAltText(
+        "dibujo de un huevo frito haciendo ver que está nadando",
+      );
+
+      expect(titleUnanimatedImage).toBeVisible();
     });
   });
 });
