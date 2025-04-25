@@ -13,7 +13,13 @@ const PostCard: React.FC<PostCardProps> = ({
 
   return (
     <article className="post">
-      <img src={imageUrl} alt={imageAlt} className="post__image" />
+      <img
+        src={imageUrl}
+        alt={imageAlt}
+        className="post__image"
+        width={300}
+        height={300}
+      />
       <div className="post__info">
         <div className="post__info-top">
           <h3 className="post__title">{title}</h3>
