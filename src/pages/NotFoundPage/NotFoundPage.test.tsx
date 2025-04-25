@@ -17,7 +17,7 @@ describe("Given the NotFoundPage component", () => {
       render(<NotFoundPage />);
 
       const imageTextAlternative = screen.getByAltText(
-        "Yema de huevo confundida con signos de interrogación",
+        /yema de huevo confundida con signos de interrogación/i,
       );
 
       expect(imageTextAlternative).toBeVisible();
