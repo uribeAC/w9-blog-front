@@ -1,4 +1,4 @@
-import { mapPostsDtoToPosts } from "../context/dto/mappers";
+import { mapPostsDtoToPosts } from "../dto/mappers";
 import { PostClientStructure, PostsData, PostsDtoData } from "./types";
 
 class PostClient implements PostClientStructure {
@@ -11,6 +11,10 @@ class PostClient implements PostClientStructure {
 
     const response = await fetch(fetchUrl);
 
+    if (!response.ok) {
+      throw new Error("Error fetching posts");
+    }
+
     const { postsDtoData } = (await response.json()) as {
       postsDtoData: PostsDtoData;
     };
@@ -21,6 +25,7 @@ class PostClient implements PostClientStructure {
       posts: posts,
       postsTotal: postsDtoData.postsTotal,
     };
+
     return postsData;
   };
 }

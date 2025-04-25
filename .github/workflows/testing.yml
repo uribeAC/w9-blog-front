@@ -2,6 +2,9 @@ name: Testing
 
 on: push
 
+env:
+  VITE_API_URL: http://localhost:4000/
+
 jobs:
   test:
     name: Tests passes

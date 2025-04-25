@@ -1,6 +1,6 @@
 export interface PostDto {
   _id: string;
-  publishDate: Date;
+  publishDate: string;
   author: string;
   title: string;
   imageUrl: string;
