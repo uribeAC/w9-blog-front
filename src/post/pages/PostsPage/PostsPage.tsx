@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PostsList from "../../components/PostsList/PostsList";
-import { Post } from "../../types";
 import "./PostsPage.css";
+import usePostsContext from "../../hooks/usePostsContext";
 
 const PostsPage: React.FC = () => {
-  const posts: Post[] = [];
-  const postsTotal: number = 30;
+  const { loadPostsByPage, posts, postsTotal } = usePostsContext();
+
+  useEffect(() => {
+    loadPostsByPage();
+  }, [loadPostsByPage]);
 
   return (
     <>

@@ -4,11 +4,14 @@ import { BrowserRouter } from "react-router";
 import AppRouter from "./router/AppRouter";
 import "@fontsource-variable/outfit/index.css";
 import "./styles/styles.css";
+import PostsContextProvider from "./post/context/PostsContextProvider";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <AppRouter />
+      <PostsContextProvider>
+        <AppRouter />
+      </PostsContextProvider>
     </BrowserRouter>
   </StrictMode>,
 );
