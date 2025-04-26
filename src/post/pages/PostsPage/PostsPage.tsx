@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PostsList from "../../components/PostsList/PostsList";
-import "./PostsPage.css";
 import usePostsContext from "../../hooks/usePostsContext";
+import "./PostsPage.css";
 
 const PostsPage: React.FC = () => {
   const { loadPostsByPage, posts, postsTotal } = usePostsContext();
