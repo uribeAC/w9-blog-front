@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router";
 import App from "../components/App/App";
 import PostsPage from "../post/pages/PostsPage/PostsPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import AddPostPage from "../post/pages/AddPostPage/AddPostPage";
 
 const AppRouter: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const AppRouter: React.FC = () => {
         <Route index element={<Navigate to="/posts" />} />
         <Route path="posts" element={<PostsPage />} />
         <Route path="posts/:page" element={<PostsPage />} />
+        <Route path="add-post" element={<AddPostPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

@@ -1,0 +1,7 @@
+.page-header__counter--hidden {
+  display: none;
+
+  @media (width > 500px) {
+    display: block;
+  }
+}
