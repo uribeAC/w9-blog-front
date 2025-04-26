@@ -1,5 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { archivoDeLasTormentasComidaPostsDto } from "../dto/fixturesDto";
+import {
+  archivoDeLasTormentasComidaPostsDto,
+  huevosRotosBruc159PostDto,
+} from "../dto/fixturesDto";
 import { PostDto } from "../dto/types";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -14,5 +17,9 @@ export const handlers = [
       posts: archivoDeLasTormentasComidaPostsDto,
       postsTotal: archivoDeLasTormentasComidaPostsDto.length,
     });
+  }),
+
+  http.post(`${apiUrl}/posts`, () => {
+    return HttpResponse.json<PostDto>(huevosRotosBruc159PostDto);
   }),
 ];

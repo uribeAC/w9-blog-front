@@ -1,8 +1,9 @@
-import { Post } from "../types";
+import { Post, PostData } from "../types";
 import { PostDto } from "../dto/types";
 
 export interface PostClientStructure {
   getPosts: (pageNumber?: number) => Promise<PostsData>;
+  addPost: (postData: PostData) => Promise<Post>;
 }
 export interface PostsDtoData {
   posts: PostDto[];

@@ -1,4 +1,4 @@
-import { Post } from "./types";
+import { Post, PostData } from "./types";
 
 export const choutaKaladinPost: Post = {
   id: "chouta123",
@@ -28,3 +28,10 @@ export const archivoDeLasTormentasComidaPosts = [
   choutaKaladinPost,
   panLuzEstelarPost,
 ];
+
+export const huevosRotosBruc159PostData: PostData = {
+  title: "Huevos Rotos de Bruc, 159",
+  content: `Los huevos rotos son una joya sencilla pero poderosa de la gastronomía española. En Bruc, 159, llevan este plato clásico a otro nivel. El plato se presenta con una cama de patatas fritas doradas, crujientes por fuera y tiernas por dentro, coronadas con huevos fritos de yema vibrante. Al romper los huevos sobre las patatas, se crea una mezcla cremosa y sabrosa que es pura felicidad. Puedes acompañarlos con jamón ibérico, chistorra o incluso trufa, según el antojo. El ambiente del lugar es acogedor, con una atención cercana que hace que cada visita sea especial. Ideal tanto para un almuerzo informal como para una cena relajada. Un plato imprescindible si quieres saborear lo mejor de la cocina tradicional española con un toque casero y auténtico.`,
+  imageUrl: "http://huevosrotos.webp",
+  author: "Mario Vaquerizo",
+};
