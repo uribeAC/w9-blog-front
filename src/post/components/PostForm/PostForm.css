@@ -70,10 +70,21 @@
     background-color: var(--secondary-color);
     color: var(--primary-color);
     outline: 3px solid var(--primary-color);
+
+    &:disabled {
+      cursor: no-drop;
+      outline-color: #f8da43ca;
+      background-color: var(--secondary-color);
+    }
   }
 
   &:active {
     transition: 0.1s;
     scale: 1.01;
+  }
+
+  &:disabled {
+    cursor: no-drop;
+    background-color: #f8da43ca;
   }
 }
