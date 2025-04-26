@@ -10,6 +10,7 @@ const PostCard: React.FC<PostCardProps> = ({
   post: { author, imageAlt, imageUrl, title, publishDate, content, tags },
 }) => {
   const previewContent = content.split(" ").slice(0, 100).join(" ");
+  const previewTags = tags.slice(0, 3);
 
   return (
     <article className="post">
@@ -28,7 +29,7 @@ const PostCard: React.FC<PostCardProps> = ({
         <p className="post__content">{previewContent}...</p>
         <div className="post__info-bottom">
           <ul className="post__tags">
-            {tags.map((tag) => (
+            {previewTags.map((tag) => (
               <li key={tag}>
                 <span className="post__tag">#{tag}</span>
               </li>
