@@ -1,0 +1,30 @@
+.paginator {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.paginator__link {
+  font-weight: 500;
+
+  &:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+
+  &:active {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}
+
+.paginator__link--hidden {
+  visibility: hidden;
+}
+
+.paginator__link,
+.pagintator__current-page {
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  padding: 5px 10px;
+}
