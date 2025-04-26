@@ -5,6 +5,7 @@ import {
   panLuzEstelarPost,
 } from "../../fixtures";
 import PostsList from "./PostsList";
+import PostsContextProvider from "../../context/PostsContextProvider";
 
 describe("Given the PostsList component", () => {
   describe("When it receives 'Chouta callejero de Alethkar 🌯⚔️' and 'Pan de luz estelar de Kharbranth ✨🍞' posts", () => {
@@ -12,7 +13,9 @@ describe("Given the PostsList component", () => {
       const expectedChoutaTitle = new RegExp(choutaKaladinPost.title, "i");
       const expectedPanDeLuzTitle = new RegExp(panLuzEstelarPost.title, "i");
 
-      render(<PostsList posts={archivoDeLasTormentasComidaPosts} />);
+      render(<PostsList posts={archivoDeLasTormentasComidaPosts} />, {
+        wrapper: PostsContextProvider,
+      });
 
       const chouteTitle = screen.getByRole("heading", {
         name: expectedChoutaTitle,
