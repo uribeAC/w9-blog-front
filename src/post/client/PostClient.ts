@@ -1,4 +1,6 @@
-import { mapPostsDtoToPosts } from "../dto/mappers";
+import { mapPostDtoToPost, mapPostsDtoToPosts } from "../dto/mappers";
+import { PostDto } from "../dto/types";
+import { Post, PostData } from "../types";
 import { PostClientStructure, PostsData, PostsDtoData } from "./types";
 
 class PostClient implements PostClientStructure {
@@ -26,6 +28,24 @@ class PostClient implements PostClientStructure {
     };
 
     return postsData;
+  };
+
+  public addPost = async (postData: PostData): Promise<Post> => {
+    const response = await fetch(`${this.apiUrl}/posts`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(postData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Error adding new post");
+    }
+
+    const newPostDto = (await response.json()) as PostDto;
+
+    const post = mapPostDtoToPost(newPostDto);
+
+    return post;
   };
 }
 
