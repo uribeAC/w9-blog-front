@@ -8,3 +8,12 @@ export interface Post {
   tags: string[];
   content: string;
 }
+
+export type PostData = Omit<
+  Post,
+  "id" | "publishDate" | "tags" | "imageAlt"
+> & {
+  publishDate?: string;
+  imageAlt?: string;
+  tags?: string[];
+};
