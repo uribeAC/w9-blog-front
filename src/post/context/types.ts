@@ -4,7 +4,7 @@ interface PostsContextStructure {
   posts: Post[];
   postsTotal: number;
   loadPostsByPage: (pageNumber?: number) => Promise<void>;
-  createPost: (postData: PostData) => Promise<Post>;
+  createPost: (postData: PostData) => Promise<void>;
 }
 
 export default PostsContextStructure;

@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import PostsContextStructure from "../context/types";
 import PostClient from "../client/PostClient";
 import { PostsData } from "../client/types";
-import { Post, PostData } from "../types";
+import { PostData } from "../types";
 
 const usePosts = (): PostsContextStructure => {
   const [postsData, setPostsData] = useState<PostsData>({
@@ -21,17 +21,13 @@ const usePosts = (): PostsContextStructure => {
     [postClient],
   );
 
-  const createPost = async (postData: PostData): Promise<Post> => {
+  const createPost = async (postData: PostData): Promise<void> => {
     const newPost = await postClient.addPost(postData);
-
-    const incrementNewPostNumber = 1;
 
     setPostsData((postsData) => ({
       posts: [...postsData.posts, newPost],
-      postsTotal: postsData.postsTotal + incrementNewPostNumber,
+      postsTotal: postsData.postsTotal + 1,
     }));
-
-    return newPost;
   };
 
   return { ...postsData, loadPostsByPage, createPost };
