@@ -57,6 +57,7 @@
 
 .page-title__image--reduced-motion {
   display: none;
+
   @media (prefers-reduced-motion) {
     display: block;
   }
