@@ -15,15 +15,14 @@ class PostClient implements PostClientStructure {
       throw new Error("Error fetching posts");
     }
 
-    const { postsDtoData } = (await response.json()) as {
-      postsDtoData: PostsDtoData;
-    };
+    const { posts: postsDto, postsTotal } =
+      (await response.json()) as PostsDtoData;
 
-    const posts = mapPostsDtoToPosts(postsDtoData.posts);
+    const posts = mapPostsDtoToPosts(postsDto);
 
     const postsData: PostsData = {
-      posts: posts,
-      postsTotal: postsDtoData.postsTotal,
+      posts,
+      postsTotal,
     };
 
     return postsData;

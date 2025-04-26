@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { archivoDeLasTormentasComidaPostsDto } from "../dto/fixturesDto";
-import { PostsDtoData } from "../client/types";
+import { PostDto } from "../dto/types";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -10,11 +10,9 @@ if (!apiUrl) {
 
 export const handlers = [
   http.get(`${apiUrl}/posts`, () => {
-    return HttpResponse.json<{ postsDtoData: PostsDtoData }>({
-      postsDtoData: {
-        posts: archivoDeLasTormentasComidaPostsDto,
-        postsTotal: archivoDeLasTormentasComidaPostsDto.length,
-      },
+    return HttpResponse.json<{ posts: PostDto[]; postsTotal: number }>({
+      posts: archivoDeLasTormentasComidaPostsDto,
+      postsTotal: archivoDeLasTormentasComidaPostsDto.length,
     });
   }),
 ];
