@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import PostsContextStructure from "../context/types";
-import { PostsContext } from "../context/PostsContext";
+import PostsContextStructure from "../types";
+import { PostsContext } from "../PostsContext";
 
 const usePostsContext = (): PostsContextStructure => {
   const context = useContext(PostsContext);

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PostsList from "../../components/PostsList/PostsList";
 import { useParams } from "react-router";
-import usePostsContext from "../../hooks/usePostsContext";
+import usePostsContext from "../../context/hooks/usePostsContext";
 import Pagination from "../../../components/Pagination/Pagination";
 import "./PostsPage.css";
 

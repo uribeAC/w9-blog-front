@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import usePostsContext from "../../hooks/usePostsContext";
+import usePostsContext from "../../context/hooks/usePostsContext";
 import PostForm from "../../components/PostForm/PostForm";
 import "./AddPostPage.css";
 
