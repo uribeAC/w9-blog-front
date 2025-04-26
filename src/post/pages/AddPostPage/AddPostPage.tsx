@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import usePostsContext from "../../hooks/usePostsContext";
-import "./AddPostPage.css";
 import PostForm from "../../components/PostForm/PostForm";
+import "./AddPostPage.css";
 
 const AddPostPage: React.FC = () => {
   const { postsTotal, loadPostsByPage } = usePostsContext();
