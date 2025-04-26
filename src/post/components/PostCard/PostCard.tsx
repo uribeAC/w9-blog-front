@@ -1,6 +1,7 @@
 import React from "react";
 import { Post } from "../../types";
 import "./PostCard.css";
+import Button from "../../../components/Button/Button";
 
 interface PostCardProps {
   post: Post;
@@ -21,11 +22,12 @@ const PostCard: React.FC<PostCardProps> = ({
         width={300}
         height={300}
       />
+      <Button action={() => {}} text="X" classModifierName="delete" />
       <div className="post__info">
-        <div className="post__info-top">
-          <h3 className="post__title">{title}</h3>
-          <h4 className="post__author">{author}</h4>
-        </div>
+        <h3 className="post__headline">
+          <span className="post__title">{title}</span>
+          <span className="post__author">{author}</span>
+        </h3>
         <p className="post__content">{previewContent}...</p>
         <div className="post__info-bottom">
           <ul className="post__tags">
