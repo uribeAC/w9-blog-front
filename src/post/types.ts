@@ -4,6 +4,7 @@ export interface Post {
   author: string;
   title: string;
   imageUrl: string;
+  smallImageUrl: string;
   imageAlt: string;
   tags: string[];
   previewTags: string[];
@@ -13,9 +14,16 @@ export interface Post {
 
 export type PostData = Omit<
   Post,
-  "id" | "publishDate" | "tags" | "imageAlt" | "previewContent" | "previewTags"
+  | "id"
+  | "publishDate"
+  | "tags"
+  | "imageAlt"
+  | "previewContent"
+  | "previewTags"
+  | "smallImageUrl"
 > & {
   publishDate?: string;
   imageAlt?: string;
   tags?: string;
+  smallImage?: string;
 };

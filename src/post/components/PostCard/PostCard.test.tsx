@@ -10,7 +10,7 @@ describe("Given the PostCard component", () => {
       const expectedTitle = /Chouta callejero de Alethkar 🌯⚔️/i;
       render(
         <PostsContextProvider>
-          <PostCard post={choutaKaladinPost} />
+          <PostCard post={choutaKaladinPost} index={1} />
         </PostsContextProvider>,
         { wrapper: MemoryRouter },
       );
@@ -23,7 +23,7 @@ describe("Given the PostCard component", () => {
     test("Then it should show an image of shining bread with salt crystals and golden crust", () => {
       render(
         <PostsContextProvider>
-          <PostCard post={choutaKaladinPost} />
+          <PostCard post={choutaKaladinPost} index={1} />
         </PostsContextProvider>,
         { wrapper: MemoryRouter },
       );
@@ -37,7 +37,7 @@ describe("Given the PostCard component", () => {
       const expectedWordTotal = 100;
       render(
         <PostsContextProvider>
-          <PostCard post={choutaKaladinPost} />
+          <PostCard post={choutaKaladinPost} index={1} />
         </PostsContextProvider>,
         { wrapper: MemoryRouter },
       );
@@ -51,7 +51,7 @@ describe("Given the PostCard component", () => {
     test("Then it should show a 'X' inside a button", () => {
       render(
         <PostsContextProvider>
-          <PostCard post={choutaKaladinPost} />
+          <PostCard post={choutaKaladinPost} index={1} />
         </PostsContextProvider>,
         { wrapper: MemoryRouter },
       );

@@ -9,9 +9,9 @@ interface PostsListProps {
 const PostsList: React.FC<PostsListProps> = ({ posts }) => {
   return (
     <ul className="posts">
-      {posts.map((post) => (
+      {posts.map((post, index) => (
         <li key={post.id}>
-          <PostCard post={post} />
+          <PostCard post={post} index={index} />
         </li>
       ))}
     </ul>
