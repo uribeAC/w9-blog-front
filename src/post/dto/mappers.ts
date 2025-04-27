@@ -10,10 +10,19 @@ export const mapPostsDtoToPosts = (postsDto: PostDto[]): Post[] => {
 export const mapPostDtoToPost = ({
   _id,
   publishDate,
+  content,
+  tags,
   ...postDto
 }: PostDto): Post => {
+  const previewContent = content.split(" ").slice(0, 100).join(" ");
+  const previewTags = tags.slice(0, 3);
+
   const post: Post = {
     ...postDto,
+    previewContent,
+    previewTags,
+    tags,
+    content,
     id: _id,
     publishDate: new Date(publishDate),
   };
