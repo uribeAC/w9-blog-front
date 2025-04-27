@@ -37,5 +37,15 @@ describe("Given the PostCard component", () => {
 
       expect(actualWordTotal).toBe(expectedWordTotal);
     });
+
+    test("Then it should show a 'X' inside a button", () => {
+      render(<PostCard post={choutaKaladinPost} />, {
+        wrapper: PostsContextProvider,
+      });
+
+      const deleteButton = screen.getByLabelText(/eliminar/i);
+
+      expect(deleteButton).toBeVisible();
+    });
   });
 });
