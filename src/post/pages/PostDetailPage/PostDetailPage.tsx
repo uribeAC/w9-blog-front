@@ -23,6 +23,8 @@ const PostDetailPage: React.FC = () => {
     return <h2 className="loading">Loading...</h2>;
   }
 
+  const imageUrl = post.detailImageUrl ? post.detailImageUrl : post.imageUrl;
+
   return (
     <>
       <header className="page-header">
@@ -35,7 +37,7 @@ const PostDetailPage: React.FC = () => {
         <div className="post-detail__wrapper">
           <img
             className="post-detail__image"
-            src={post.imageUrl}
+            src={imageUrl}
             alt={post.imageUrl}
             width={100}
             height={100}
