@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 import {
   archivoDeLasTormentasComidaPosts,
   choutaKaladinPost,
@@ -13,9 +14,12 @@ describe("Given the PostsList component", () => {
       const expectedChoutaTitle = new RegExp(choutaKaladinPost.title, "i");
       const expectedPanDeLuzTitle = new RegExp(panLuzEstelarPost.title, "i");
 
-      render(<PostsList posts={archivoDeLasTormentasComidaPosts} />, {
-        wrapper: PostsContextProvider,
-      });
+      render(
+        <PostsContextProvider>
+          <PostsList posts={archivoDeLasTormentasComidaPosts} />
+        </PostsContextProvider>,
+        { wrapper: MemoryRouter },
+      );
 
       const chouteTitle = screen.getByRole("heading", {
         name: expectedChoutaTitle,
