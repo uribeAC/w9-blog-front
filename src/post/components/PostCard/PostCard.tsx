@@ -6,6 +6,7 @@ import usePostsContext from "../../context/hooks/usePostsContext";
 
 interface PostCardProps {
   post: Post;
+  index: number;
 }
 
 const PostCard: React.FC<PostCardProps> = ({
@@ -18,18 +19,24 @@ const PostCard: React.FC<PostCardProps> = ({
     id,
     previewContent,
     previewTags,
+    smallImageUrl,
   },
+  index,
 }) => {
   const { deletePost } = usePostsContext();
+
+  const loadingType = index <= 2 ? "eager" : "lazy";
 
   return (
     <article className="post">
       <img
-        src={imageUrl}
+        srcSet={`${smallImageUrl} 300w, ${imageUrl}420w`}
+        sizes="(min-width: 490px and max-width: 500px) 420px, 300px"
         alt={imageAlt}
         className="post__image"
         width={300}
         height={300}
+        loading={loadingType}
       />
       <Button
         action={() => deletePost(id)}

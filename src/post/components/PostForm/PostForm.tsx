@@ -12,6 +12,7 @@ const PostForm: React.FC<PostFormProps> = ({ action }) => {
     author: "",
     content: "",
     imageUrl: "",
+    smallImageUrl: "",
     title: "",
     imageAlt: "",
     publishDate: "",

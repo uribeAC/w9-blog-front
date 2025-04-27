@@ -7,4 +7,5 @@ export interface PostDto {
   imageAlt: string;
   tags: string[];
   content: string;
+  smallImageUrl: string;
 }
