@@ -17,5 +17,5 @@ export type PostData = Omit<
 > & {
   publishDate?: string;
   imageAlt?: string;
-  tags?: string[];
+  tags?: string;
 };

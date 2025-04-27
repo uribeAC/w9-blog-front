@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import "./PostForm.css";
+import { useNavigate } from "react-router";
 import { PostData } from "../../types";
+import "./PostForm.css";
 
-const PostForm: React.FC = () => {
+interface PostFormProps {
+  action: (postData: PostData) => Promise<void>;
+}
+
+const PostForm: React.FC<PostFormProps> = ({ action }) => {
   const initialPostData: PostData = {
     author: "",
     content: "",
     imageUrl: "",
     title: "",
+    imageAlt: "",
+    publishDate: "",
+    tags: "",
   };
 
   const [postData, setPostData] = useState<PostData>(initialPostData);
@@ -31,8 +39,20 @@ const PostForm: React.FC = () => {
     postData.content !== "" &&
     postData.imageUrl !== "";
 
+  const navigate = useNavigate();
+
+  const onSubmitForm = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
+    event.preventDefault();
+
+    await action(postData);
+
+    navigate("/");
+  };
+
   return (
-    <form className="post-form">
+    <form className="post-form" onSubmit={onSubmitForm}>
       <div className="post-form__groups">
         <h3 className="form-text">Campos obligatorios:</h3>
         <div className="post-form__group">
