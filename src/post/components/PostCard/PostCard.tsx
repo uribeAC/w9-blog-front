@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { Post } from "../../types";
 import "./PostCard.css";
 import Button from "../../../components/Button/Button";
@@ -22,6 +23,11 @@ const PostCard: React.FC<PostCardProps> = ({
 }) => {
   const { deletePost } = usePostsContext();
 
+  const navigate = useNavigate();
+  const getPostDetail = (postId: string): void => {
+    navigate(`/post/${postId}`);
+  };
+
   return (
     <article className="post">
       <img
@@ -36,6 +42,12 @@ const PostCard: React.FC<PostCardProps> = ({
         text="X"
         classModifierName="delete"
         aria-label="eliminar post"
+      />
+      <Button
+        action={() => getPostDetail(id)}
+        text="+ info"
+        classModifierName="navigate"
+        aria-label="detalles del post"
       />
       <div className="post__info">
         <h3 className="post__headline">
