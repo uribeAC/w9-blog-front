@@ -4,7 +4,7 @@ import PostForm from "../../components/PostForm/PostForm";
 import "./AddPostPage.css";
 
 const AddPostPage: React.FC = () => {
-  const { postsTotal, loadPostsByPage } = usePostsContext();
+  const { postsTotal, loadPostsByPage, createPost } = usePostsContext();
 
   useEffect(() => {
     loadPostsByPage();
@@ -18,7 +18,7 @@ const AddPostPage: React.FC = () => {
           posts totales: {postsTotal}
         </span>
       </header>
-      <PostForm />
+      <PostForm action={createPost} />
     </>
   );
 };
