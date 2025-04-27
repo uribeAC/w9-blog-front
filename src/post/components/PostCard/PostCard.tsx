@@ -1,16 +1,20 @@
 import React from "react";
 import { Post } from "../../types";
 import "./PostCard.css";
+import Button from "../../../components/Button/Button";
+import usePostsContext from "../../context/hooks/usePostsContext";
 
 interface PostCardProps {
   post: Post;
 }
 
 const PostCard: React.FC<PostCardProps> = ({
-  post: { author, imageAlt, imageUrl, title, publishDate, content, tags },
+  post: { author, imageAlt, imageUrl, title, publishDate, content, tags, id },
 }) => {
   const previewContent = content.split(" ").slice(0, 100).join(" ");
   const previewTags = tags.slice(0, 3);
+
+  const { deletePost } = usePostsContext();
 
   return (
     <article className="post">
@@ -21,11 +25,16 @@ const PostCard: React.FC<PostCardProps> = ({
         width={300}
         height={300}
       />
+      <Button
+        action={() => deletePost(id)}
+        text="X"
+        classModifierName="delete"
+      />
       <div className="post__info">
-        <div className="post__info-top">
-          <h3 className="post__title">{title}</h3>
-          <h4 className="post__author">{author}</h4>
-        </div>
+        <h3 className="post__headline">
+          <span className="post__title">{title}</span>
+          <span className="post__author">{author}</span>
+        </h3>
         <p className="post__content">{previewContent}...</p>
         <div className="post__info-bottom">
           <ul className="post__tags">

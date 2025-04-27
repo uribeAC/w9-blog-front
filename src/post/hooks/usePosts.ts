@@ -30,7 +30,16 @@ const usePosts = (): PostsContextStructure => {
     }));
   };
 
-  return { ...postsData, loadPostsByPage, createPost };
+  const deletePost = async (postId: string): Promise<void> => {
+    const deletedPost = await postClient.deletePost(postId);
+
+    setPostsData((postsData) => ({
+      posts: postsData.posts.filter((post) => post.id !== deletedPost.id),
+      postsTotal: postsData.postsTotal - 1,
+    }));
+  };
+
+  return { ...postsData, loadPostsByPage, createPost, deletePost };
 };
 
 export default usePosts;
