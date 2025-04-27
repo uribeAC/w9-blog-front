@@ -7,7 +7,7 @@ describe("Given the PostCard component", () => {
   describe("When it receives 'Chouta callejero de Alethkar 🌯⚔️' post", () => {
     test("Then it should show 'Chouta callejero de Alethkar 🌯⚔️' inside a heading", () => {
       const expectedTitle = /Chouta callejero de Alethkar 🌯⚔️/i;
-      render(<PostCard post={choutaKaladinPost} />, {
+      render(<PostCard post={choutaKaladinPost} index={1} />, {
         wrapper: PostsContextProvider,
       });
 
@@ -17,7 +17,7 @@ describe("Given the PostCard component", () => {
     });
 
     test("Then it should show an image of shining bread with salt crystals and golden crust", () => {
-      render(<PostCard post={choutaKaladinPost} />, {
+      render(<PostCard post={choutaKaladinPost} index={1} />, {
         wrapper: PostsContextProvider,
       });
 
@@ -28,7 +28,7 @@ describe("Given the PostCard component", () => {
 
     test("Then it should show only the first 100 words of the content", () => {
       const expectedWordTotal = 100;
-      render(<PostCard post={choutaKaladinPost} />, {
+      render(<PostCard post={choutaKaladinPost} index={1} />, {
         wrapper: PostsContextProvider,
       });
 
@@ -39,7 +39,7 @@ describe("Given the PostCard component", () => {
     });
 
     test("Then it should show a 'X' inside a button", () => {
-      render(<PostCard post={choutaKaladinPost} />, {
+      render(<PostCard post={choutaKaladinPost} index={1} />, {
         wrapper: PostsContextProvider,
       });
 

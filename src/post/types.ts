@@ -14,7 +14,13 @@ export interface Post {
 
 export type PostData = Omit<
   Post,
-  "id" | "publishDate" | "tags" | "imageAlt" | "previewContent" | "previewTags"
+  | "id"
+  | "publishDate"
+  | "tags"
+  | "imageAlt"
+  | "previewContent"
+  | "previewTags"
+  | "smallImageUrl"
 > & {
   publishDate?: string;
   imageAlt?: string;
