@@ -35,6 +35,7 @@ const PostCard: React.FC<PostCardProps> = ({
         action={() => deletePost(id)}
         text="X"
         classModifierName="delete"
+        aria-label="eliminar post"
       />
       <div className="post__info">
         <h3 className="post__headline">
