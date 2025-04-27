@@ -4,8 +4,14 @@ import PostsContextStructure from "./types";
 import usePosts from "../hooks/usePosts";
 
 const PostsContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const { loadPostsByPage, posts, postsTotal, createPost, deletePost } =
-    usePosts();
+  const {
+    loadPostsByPage,
+    posts,
+    postsTotal,
+    createPost,
+    deletePost,
+    loadPostById,
+  } = usePosts();
 
   const postsContextValue: PostsContextStructure = {
     posts,
@@ -13,6 +19,7 @@ const PostsContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     loadPostsByPage,
     createPost,
     deletePost,
+    loadPostById,
   };
 
   return (
