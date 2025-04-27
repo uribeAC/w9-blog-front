@@ -9,11 +9,17 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({
-  post: { author, imageAlt, imageUrl, title, publishDate, content, tags, id },
+  post: {
+    author,
+    imageAlt,
+    imageUrl,
+    title,
+    publishDate,
+    id,
+    previewContent,
+    previewTags,
+  },
 }) => {
-  const previewContent = content.split(" ").slice(0, 100).join(" ");
-  const previewTags = tags.slice(0, 3);
-
   const { deletePost } = usePostsContext();
 
   return (
