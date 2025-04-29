@@ -1,6 +1,7 @@
 import { http, HttpResponse } from "msw";
 import {
   archivoDeLasTormentasComidaPostsDto,
+  choutaKaladinPostDto,
   huevosRotosBruc159PostDto,
 } from "../dto/fixturesDto";
 import { PostDto } from "../dto/types";
@@ -29,5 +30,9 @@ export const handlers = [
 
   http.delete(`${apiUrl}/posts/159678901234567890123456`, () => {
     return HttpResponse.json<PostDto>(huevosRotosBruc159PostDto);
+  }),
+
+  http.delete(`${apiUrl}/posts/123456789123456789123456`, () => {
+    return HttpResponse.json<PostDto>(choutaKaladinPostDto);
   }),
 ];
