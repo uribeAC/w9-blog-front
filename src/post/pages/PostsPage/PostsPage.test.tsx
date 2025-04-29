@@ -3,6 +3,10 @@ import { MemoryRouter } from "react-router";
 import PostsPage from "./PostsPage";
 import PostsContextProvider from "../../context/PostsContextProvider";
 import { choutaKaladinPost } from "../../fixtures";
+import userEvent from "@testing-library/user-event";
+
+const user = userEvent.setup();
+window.scrollTo = vitest.fn();
 
 describe("Given the PostsPage component", () => {
   describe("When it renders", () => {
@@ -20,8 +24,25 @@ describe("Given the PostsPage component", () => {
     });
   });
 
-  describe("When it renders in /posts", () => {
-    test("Then it should show Chouta callejero de Alethkar 🌯⚔️ and Pan de luz estelar de Kharbranth ✨🍞' inside a heading", async () => {
+  test("Then it should show Chouta callejero de Alethkar 🌯⚔️ and Pan de luz estelar de Kharbranth ✨🍞' inside a heading", async () => {
+    render(
+      <PostsContextProvider>
+        <PostsPage />
+      </PostsContextProvider>,
+      { wrapper: MemoryRouter },
+    );
+
+    const postTitle = await screen.findByRole("heading", {
+      name: new RegExp(choutaKaladinPost.title, "i"),
+    });
+
+    expect(postTitle).toBeVisible();
+  });
+
+  describe("And the user clicks the button with label 'eliminar post' from Chouta callejero de Alethkar post", () => {
+    test("Then it shouldn't show anymore Chouta callejera de Alethkar post", async () => {
+      const expectedTitleRegex = new RegExp(choutaKaladinPost.title, "i");
+
       render(
         <PostsContextProvider>
           <PostsPage />
@@ -29,11 +50,15 @@ describe("Given the PostsPage component", () => {
         { wrapper: MemoryRouter },
       );
 
-      const postTitle = await screen.findByRole("heading", {
-        name: new RegExp(choutaKaladinPost.title, "i"),
+      const deleteButtons = await screen.findAllByLabelText(/eliminar post/i);
+
+      await user.click(deleteButtons[0]);
+
+      const postTitle = await screen.queryByRole("heading", {
+        name: expectedTitleRegex,
       });
 
-      expect(postTitle).toBeVisible();
+      expect(postTitle).toBeNull();
     });
   });
 });
