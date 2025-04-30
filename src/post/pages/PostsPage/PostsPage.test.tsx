@@ -50,15 +50,21 @@ describe("Given the PostsPage component", () => {
         { wrapper: MemoryRouter },
       );
 
+      const postTitle = await screen.findByRole("heading", {
+        name: expectedTitleRegex,
+      });
+
+      expect(postTitle).toBeVisible();
+
       const deleteButtons = await screen.findAllByLabelText(/eliminar post/i);
 
       await user.click(deleteButtons[0]);
 
-      const postTitle = await screen.queryByRole("heading", {
+      const deletedPostTitle = await screen.queryByRole("heading", {
         name: expectedTitleRegex,
       });
 
-      expect(postTitle).toBeNull();
+      expect(deletedPostTitle).toBeNull();
     });
   });
 });
