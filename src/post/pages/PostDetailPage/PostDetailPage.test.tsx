@@ -26,7 +26,6 @@ describe("Given the PostDetailPage component", () => {
         name: expectedTitleRegex,
       });
 
-      screen.debug();
       expect(postTitle).toBeVisible();
     });
 
