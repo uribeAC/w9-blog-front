@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter, Route, Routes } from "react-router";
+import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import Layout from "./Layout";
-import PostsPage from "../../post/pages/PostsPage/PostsPage";
 import PostsContextProvider from "../../post/context/PostsContextProvider";
+import AppRouter from "../../router/AppRouter";
 
 const user = userEvent.setup();
 window.scrollTo = vitest.fn();
 
 describe("Given the Layout component", () => {
-  describe("When it renders in page 1", () => {
+  describe("When it renders", () => {
     test("Then it should show 'Aliset comiendo por el mundo' inside a level 1 heading", () => {});
     render(
       <MemoryRouter>
@@ -31,10 +31,7 @@ describe("Given the Layout component", () => {
         <PostsContextProvider>
           <MemoryRouter initialEntries={["/posts"]}>
             <Layout />
-            <Routes>
-              <Route path="/posts" element={<PostsPage />} />
-              <Route path="/posts/:page" element={<PostsPage />} />
-            </Routes>
+            <AppRouter />
           </MemoryRouter>
         </PostsContextProvider>,
       );
