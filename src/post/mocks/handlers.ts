@@ -32,18 +32,24 @@ export const handlers = [
   }),
 
   http.get(`${apiUrl}/posts/159678901234567890123456`, () => {
-    return HttpResponse.json<PostDto>(huevosRotosBruc159PostDto);
+    return HttpResponse.json<{ post: PostDto }>({
+      post: huevosRotosBruc159PostDto,
+    });
   }),
 
   http.post(`${apiUrl}/posts`, () => {
-    return HttpResponse.json<PostDto>(huevosRotosBruc159PostDto);
+    return HttpResponse.json<{ post: PostDto }>({
+      post: huevosRotosBruc159PostDto,
+    });
   }),
 
   http.delete(`${apiUrl}/posts/159678901234567890123456`, () => {
-    return HttpResponse.json<PostDto>(huevosRotosBruc159PostDto);
+    return HttpResponse.json<{ post: PostDto }>({
+      post: huevosRotosBruc159PostDto,
+    });
   }),
 
   http.delete(`${apiUrl}/posts/123456789123456789123456`, () => {
-    return HttpResponse.json<PostDto>(choutaKaladinPostDto);
+    return HttpResponse.json<{ post: PostDto }>({ post: choutaKaladinPostDto });
   }),
 ];
