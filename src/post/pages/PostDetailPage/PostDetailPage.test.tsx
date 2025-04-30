@@ -5,8 +5,8 @@ import PostDetailPage from "./PostDetailPage";
 import { huevosRotosBruc159PostDto } from "../../dto/fixturesDto";
 
 describe("Given the PostDetailPage component", () => {
-  describe("When it receives Huevos rotos de Bruc, 159 post id", () => {
-    test("Then it should show 'Huevos rotos de Bruc, 159' inside a heading", async () => {
+  describe("When it receives Huevos Rotos de Bruc, 159 🍳💔 post id", () => {
+    test("Then it should show 'Huevos Rotos de Bruc, 159 🍳💔' inside a heading", async () => {
       const expectedTitleRegex = new RegExp(
         huevosRotosBruc159PostDto.title,
         "i",
