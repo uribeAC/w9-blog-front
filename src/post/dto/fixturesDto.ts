@@ -84,6 +84,9 @@ export const archivoDeLasTormentasComidaPostsDto = [
   estofadoHorneaterPostDto,
   pastelLuzTormentaPostDto,
   sopaVerdanthePostDto,
+];
+
+export const archivoDeLasTormentasComidaPostsPage2Dto = [
   brochetasShinovarPostDto,
 ];
 
