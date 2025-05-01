@@ -38,8 +38,16 @@ export const archivoDeLasTormentasComidaPosts = [
 ];
 
 export const huevosRotosBruc159PostData: PostData = {
-  title: "Huevos Rotos de Bruc, 159",
+  title: "Huevos Rotos de Bruc, 159 🍳💔",
   content: `Los huevos rotos son una joya sencilla pero poderosa de la gastronomía española. En Bruc, 159, llevan este plato clásico a otro nivel. El plato se presenta con una cama de patatas fritas doradas, crujientes por fuera y tiernas por dentro, coronadas con huevos fritos de yema vibrante. Al romper los huevos sobre las patatas, se crea una mezcla cremosa y sabrosa que es pura felicidad. Puedes acompañarlos con jamón ibérico, chistorra o incluso trufa, según el antojo. El ambiente del lugar es acogedor, con una atención cercana que hace que cada visita sea especial. Ideal tanto para un almuerzo informal como para una cena relajada. Un plato imprescindible si quieres saborear lo mejor de la cocina tradicional española con un toque casero y auténtico.`,
   imageUrl: "http://huevosrotos.webp",
   author: "Mario Vaquerizo",
+};
+
+export const empanadasThaylenahPostDto: PostData = {
+  author: "Mercader de sabores de Thaylenah",
+  content:
+    "En los bulliciosos mercados portuarios de Thaylenah, donde las esquirlas brillan al sol y los barcos traen historias de tierras lejanas, las empanadas de mar son un clásico imprescindible. Su masa, dorada y crujiente, envuelve un relleno especiado de pescado blanco, cebolla dulce, aceitunas negras y pimiento rojo, cocido lentamente en aceite de especias importadas de las Islas Reshi. Cada bocado es un viaje entre lo salado, lo picante y lo umami. Tradicionalmente se sirven en bolsas de tela encerada, ideales para llevar mientras recorres los muelles o escuchas las historias de los capitanes de flota. Es una receta que honra tanto el mar como el comercio, y una excelente opción para una cena ligera con un toque exótico. Si las haces en casa, acompáñalas con una infusión de cítricos fermentados y una mente abierta a los relatos del viento.",
+  imageUrl: "https://example.com/empanadas-thaylenah.jpg",
+  title: "Empanadas marinas de Thaylenah ⚓🥟",
 };

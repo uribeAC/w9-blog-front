@@ -21,10 +21,13 @@ const usePosts = (): PostsContextStructure => {
     [postClient],
   );
 
-  const createPost = async (postData: PostData): Promise<void> => {
-    await postClient.addPost(postData);
+  const createPost = async (newPostData: PostData): Promise<void> => {
+    const newPost = await postClient.addPost(newPostData);
 
-    await loadPostsByPage();
+    setPostsData((postsData) => ({
+      posts: [...postsData.posts, newPost],
+      postsTotal: postsData.postsTotal + 1,
+    }));
   };
 
   const deletePost = async (postId: string): Promise<void> => {

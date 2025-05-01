@@ -2,6 +2,7 @@ import { http, HttpResponse } from "msw";
 import {
   archivoDeLasTormentasComidaPostsDto,
   archivoDeLasTormentasComidaPostsPage2Dto,
+  brochetasShinovarPostDto,
   choutaKaladinPostDto,
   huevosRotosBruc159PostDto,
 } from "../dto/fixturesDto";
@@ -37,6 +38,12 @@ export const handlers = [
     });
   }),
 
+  http.get(`${apiUrl}/posts/19`, () => {
+    return HttpResponse.json<{ post: PostDto }>({
+      post: brochetasShinovarPostDto,
+    });
+  }),
+
   http.post(`${apiUrl}/posts`, () => {
     return HttpResponse.json<{ post: PostDto }>({
       post: huevosRotosBruc159PostDto,
@@ -51,5 +58,11 @@ export const handlers = [
 
   http.delete(`${apiUrl}/posts/123456789123456789123456`, () => {
     return HttpResponse.json<{ post: PostDto }>({ post: choutaKaladinPostDto });
+  }),
+
+  http.delete(`${apiUrl}/posts/19`, () => {
+    return HttpResponse.json<{ post: PostDto }>({
+      post: brochetasShinovarPostDto,
+    });
   }),
 ];

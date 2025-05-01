@@ -3,8 +3,8 @@ import { huevosRotosBruc159PostDto } from "../../dto/fixturesDto";
 import { mapPostDtoToPost } from "../../dto/mappers";
 
 describe("Given the getPostById method to PostClient", () => {
-  describe("When it's called with 'Huevos rotos de Bruc, 159' id", () => {
-    test("Then it should return Huevos rotos de Bruc, 159 post", async () => {
+  describe("When it's called with 'Huevos Rotos de Bruc, 159 🍳💔' id", () => {
+    test("Then it should return Huevos Rotos de Bruc, 159 🍳💔 post", async () => {
       const postClient = new PostClient();
 
       const post = await postClient.getPostById(huevosRotosBruc159PostDto._id);
