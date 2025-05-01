@@ -38,6 +38,12 @@ export const handlers = [
     });
   }),
 
+  http.get(`${apiUrl}/posts/123456789123456789123456`, () => {
+    return HttpResponse.json<{ post: PostDto }>({
+      post: choutaKaladinPostDto,
+    });
+  }),
+
   http.get(`${apiUrl}/posts/19`, () => {
     return HttpResponse.json<{ post: PostDto }>({
       post: brochetasShinovarPostDto,

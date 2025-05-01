@@ -82,5 +82,30 @@ describe("Given the Layout component", () => {
         expect(brochetasPostTitle).toBeVisible();
       });
     });
+
+    describe("And the user clicks the button with label 'detalles del post Chouta callejero de Alethkar 🌯⚔️'", () => {
+      test("Then it should show Chouta callejero de Alethkar 🌯⚔️ title post inside a heading", async () => {
+        render(
+          <PostsContextProvider>
+            <MemoryRouter initialEntries={["/posts"]}>
+              <Layout />
+              <AppRouter />
+            </MemoryRouter>
+          </PostsContextProvider>,
+        );
+
+        const choutaMoreInfoButton = await screen.findByLabelText(
+          /detalles del post chouta callejero de alethkar 🌯⚔️/i,
+        );
+
+        await user.click(choutaMoreInfoButton);
+
+        const choutaPostTitle = await screen.findByRole("heading", {
+          name: /chouta callejero de alethkar 🌯⚔️/i,
+        });
+
+        expect(choutaPostTitle).toBeVisible();
+      });
+    });
   });
 });
