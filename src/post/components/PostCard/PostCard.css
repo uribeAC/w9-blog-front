@@ -26,24 +26,48 @@
   }
 }
 
-.button--delete,
-.button--navigate {
+.post__buttons {
   position: absolute;
+  left: 15px;
   top: 15px;
+  display: flex;
+  gap: 5px;
+}
+
+.button--delete {
   height: 2rem;
+  width: 2rem;
   font-size: 1rem;
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.button--delete {
-  left: 15px;
-  width: 2rem;
-}
-
-.button--navigate {
-  left: 55px;
+.post__info-link {
   padding: 0px 10px !important;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 2rem;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+
+  &:hover {
+    border-radius: 5px;
+    color: var(--secondary-color);
+    transition: 0.5s;
+    background-color: var(--primary-color);
+  }
+
+  &:active {
+    transition: 0.1s;
+    scale: 1.01;
+  }
+
+  &:focus {
+    border: 2px solid #fff;
+    outline: 2px solid var(--secondary-color);
+  }
 }
 
 .post__info {
