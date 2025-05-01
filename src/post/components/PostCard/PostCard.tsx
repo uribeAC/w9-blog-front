@@ -48,7 +48,7 @@ const PostCard: React.FC<PostCardProps> = ({
         />
         <Link
           to={`/post/${id}`}
-          aria-label="detalles del post"
+          aria-label={`Detalles del post ${title}`}
           className="post__info-link"
         >
           + info
