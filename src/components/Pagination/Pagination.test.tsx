@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
-import { archivoDeLasTormentasComidaPosts } from "../../post/fixtures";
+import { archivoDeLasTormentasComidaPosts } from "../../post/fixtures/fixtures";
 import Pagination from "./Pagination";
 
 describe("Given the Pagination component", () => {

@@ -5,7 +5,7 @@ import {
   brochetasShinovarPostDto,
   choutaKaladinPostDto,
   huevosRotosBruc159PostDto,
-} from "../dto/fixturesDto";
+} from "../fixtures/fixturesDto";
 import { PostDto } from "../dto/types";
 
 const apiUrl = import.meta.env.VITE_API_URL;

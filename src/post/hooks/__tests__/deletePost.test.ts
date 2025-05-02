@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import usePosts from "../usePosts";
 import { act } from "react";
-import { brochetasShinovarPostDto } from "../../dto/fixturesDto";
+import { brochetasShinovarPostDto } from "../../fixtures/fixturesDto";
 
 describe("Given the deletePost function", () => {
   describe("When it's called with Brochetas de calma Shin 🌸🍢 post id", () => {

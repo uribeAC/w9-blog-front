@@ -1,6 +1,6 @@
-import { huevosRotosBruc159PostDto } from "../../dto/fixturesDto";
+import { huevosRotosBruc159PostDto } from "../../fixtures/fixturesDto";
 import { mapPostDtoToPost } from "../../dto/mappers";
-import { huevosRotosBruc159PostData } from "../../fixtures";
+import { huevosRotosBruc159PostData } from "../../fixtures/fixtures";
 import PostClient from "../PostClient";
 
 describe("Given the addPost method to PostClient", () => {
