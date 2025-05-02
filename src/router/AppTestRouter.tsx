@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import PostsPage from "../pages/PostsPage/PostsPage";
-import AddPostPage from "../pages/AddPostPage/AddPostPage";
-import PostDetailPage from "../pages/PostDetailPage/PostDetailPage";
+import PostsPage from "../post/pages/PostsPage/PostsPage";
+import AddPostPage from "../post/pages/AddPostPage/AddPostPage";
+import PostDetailPage from "../post/pages/PostDetailPage/PostDetailPage";
 
-const AppRouterMock: React.FC = () => {
+const AppTestRouter: React.FC = () => {
   return (
     <Routes>
       <Route path="/posts" element={<PostsPage />} />
@@ -14,4 +14,4 @@ const AppRouterMock: React.FC = () => {
   );
 };
 
-export default AppRouterMock;
+export default AppTestRouter;

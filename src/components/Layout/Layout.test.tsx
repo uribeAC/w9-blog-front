@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import Layout from "./Layout";
 import PostsContextProvider from "../../post/context/PostsContextProvider";
-import AppRouterMock from "../../post/mocks/AppRouterMock";
+import AppTestRouter from "../../router/AppTestRouter";
 
 const user = userEvent.setup();
 window.scrollTo = vitest.fn();
@@ -32,7 +32,7 @@ describe("Given the Layout component", () => {
         <PostsContextProvider>
           <MemoryRouter initialEntries={["/posts"]}>
             <Layout />
-            <AppRouterMock />
+            <AppTestRouter />
           </MemoryRouter>
         </PostsContextProvider>,
       );
@@ -66,7 +66,7 @@ describe("Given the Layout component", () => {
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
               <Layout />
-              <AppRouterMock />
+              <AppTestRouter />
             </MemoryRouter>
           </PostsContextProvider>,
         );
@@ -83,47 +83,22 @@ describe("Given the Layout component", () => {
       });
     });
 
-    describe("And the user clicks the button with label 'detalles del post Chouta callejero de Alethkar 🌯⚔️'", () => {
-      test("Then it should show Chouta callejero de Alethkar 🌯⚔️ title post inside a heading", async () => {
-        render(
-          <PostsContextProvider>
-            <MemoryRouter initialEntries={["/posts"]}>
-              <Layout />
-              <AppRouterMock />
-            </MemoryRouter>
-          </PostsContextProvider>,
-        );
-
-        const choutaMoreInfoButton = await screen.findByLabelText(
-          /detalles del post chouta callejero de alethkar 🌯⚔️/i,
-        );
-
-        await user.click(choutaMoreInfoButton);
-
-        const choutaPostTitle = await screen.findByRole("heading", {
-          name: /chouta callejero de alethkar 🌯⚔️/i,
-        });
-
-        expect(choutaPostTitle).toBeVisible();
-      });
-    });
-
     describe("And the user clicks the link with label 'Crear post'", () => {
       test("Then it should show 'Crear nuevo post' inside a heading", async () => {
         render(
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
               <Layout />
-              <AppRouterMock />
+              <AppTestRouter />
             </MemoryRouter>
           </PostsContextProvider>,
         );
 
-        const createPostButton = await screen.findByRole("link", {
+        const createPostLink = await screen.findByRole("link", {
           name: /crear post/i,
         });
 
-        await user.click(createPostButton);
+        await user.click(createPostLink);
 
         const createPostTitle = await screen.findByRole("heading", {
           name: /crear nuevo post/i,

@@ -46,11 +46,7 @@ const PostCard: React.FC<PostCardProps> = ({
           classModifierName="delete"
           aria-label="eliminar post"
         />
-        <Link
-          to={`/post/${id}`}
-          aria-label={`Detalles del post ${title}`}
-          className="post__info-link"
-        >
+        <Link to={`/post/${id}`} className="post__info-link">
           + info
         </Link>
       </div>
