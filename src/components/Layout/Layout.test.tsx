@@ -60,8 +60,8 @@ describe("Given the Layout component", () => {
       expect(sopaPostTitle).toBeVisible();
     });
 
-    describe("And the user clicks the link with label 'Siguiente pagina'", () => {
-      test("Then it should show Brochetas de calma Shin 🌸🍢 title post inside a heading", async () => {
+    describe("And the user clicks the link '>' with label 'Siguiente pagina'", () => {
+      test("Then it should show 'Brochetas de calma Shin 🌸🍢' title post inside a heading", async () => {
         render(
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
@@ -71,9 +71,15 @@ describe("Given the Layout component", () => {
           </PostsContextProvider>,
         );
 
-        const nextPage = screen.getByLabelText(/siguiente pagina/i);
+        const choutaPostTitle = await screen.findByRole("heading", {
+          name: /chouta callejero de alethkar 🌯⚔️/i,
+        });
 
-        await user.click(nextPage);
+        expect(choutaPostTitle).toBeVisible();
+
+        const nextPageLink = screen.getByLabelText(/siguiente pagina/i);
+
+        await user.click(nextPageLink);
 
         const brochetasPostTitle = await screen.findByRole("heading", {
           name: /brochetas de calma shin 🌸🍢/i,
@@ -83,7 +89,7 @@ describe("Given the Layout component", () => {
       });
     });
 
-    describe("And the user clicks the link with label 'Crear post'", () => {
+    describe("And the user clicks the link 'Crear post'", () => {
       test("Then it should show 'Crear nuevo post' inside a heading", async () => {
         render(
           <PostsContextProvider>
@@ -105,6 +111,37 @@ describe("Given the Layout component", () => {
         });
 
         expect(createPostTitle).toBeVisible();
+      });
+    });
+  });
+
+  describe("When it renders in path /posts?page=2", () => {
+    describe("And the user clicks the link '<' with label 'Pagina anterior'", () => {
+      test("Then it should show 'Chouta callejero de Alethkar 🌯⚔️' post title inside a heading", async () => {
+        render(
+          <PostsContextProvider>
+            <MemoryRouter initialEntries={["/posts?page=2"]}>
+              <Layout />
+              <AppTestRouter />
+            </MemoryRouter>
+          </PostsContextProvider>,
+        );
+
+        const brochetasPostTitle = await screen.findByRole("heading", {
+          name: /brochetas de calma shin 🌸🍢/i,
+        });
+
+        expect(brochetasPostTitle).toBeVisible();
+
+        const previewsPageLink = screen.getByLabelText(/pagina anterior/i);
+
+        await user.click(previewsPageLink);
+
+        const choutaPostTitle = await screen.findByRole("heading", {
+          name: /chouta callejero de alethkar 🌯⚔️/i,
+        });
+
+        expect(choutaPostTitle).toBeVisible();
       });
     });
   });

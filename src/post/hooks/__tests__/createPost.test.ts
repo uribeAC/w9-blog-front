@@ -5,7 +5,7 @@ import { huevosRotosBruc159PostData } from "../../fixtures/fixtures";
 
 describe("Given the createPost function", () => {
   describe("When it's called with Huevos Rotos de Bruc, 159 🍳💔 post", () => {
-    test("Then it should add 'Huevos Rotos de Bruc, 159 🍳💔' post to postData ", async () => {
+    test("Then it should add 'Huevos Rotos de Bruc, 159 🍳💔' post to the hook state ", async () => {
       const { result } = renderHook(() => usePosts());
 
       await act(() => {
