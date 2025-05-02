@@ -60,5 +60,18 @@ describe("Given the PostCard component", () => {
 
       expect(deleteButton).toBeVisible();
     });
+
+    test("Then it should show a '+ Info' inside a button", () => {
+      render(
+        <PostsContextProvider>
+          <PostCard post={choutaKaladinPost} index={1} />
+        </PostsContextProvider>,
+        { wrapper: MemoryRouter },
+      );
+
+      const moreInfoButton = screen.getByRole("link", { name: /\+ info/i });
+
+      expect(moreInfoButton).toBeVisible();
+    });
   });
 });
