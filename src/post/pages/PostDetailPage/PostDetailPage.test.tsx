@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import PostsContextProvider from "../../context/PostsContextProvider";
 import { MemoryRouter, Route, Routes } from "react-router";
 import PostDetailPage from "./PostDetailPage";
-import { huevosRotosBruc159PostDto } from "../../dto/fixturesDto";
+import { huevosRotosBruc159PostDto } from "../../fixtures/fixturesDto";
 
 describe("Given the PostDetailPage component", () => {
   describe("When it receives Huevos Rotos de Bruc, 159 🍳💔 post id", () => {

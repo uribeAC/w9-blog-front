@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import PostCard from "./PostCard";
-import { choutaKaladinPost } from "../../fixtures";
+import { choutaKaladinPost } from "../../fixtures/fixtures";
 import PostsContextProvider from "../../context/PostsContextProvider";
 
 describe("Given the PostCard component", () => {

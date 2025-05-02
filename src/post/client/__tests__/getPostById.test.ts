@@ -1,5 +1,5 @@
 import PostClient from "../PostClient";
-import { huevosRotosBruc159PostDto } from "../../dto/fixturesDto";
+import { huevosRotosBruc159PostDto } from "../../fixtures/fixturesDto";
 import { mapPostDtoToPost } from "../../dto/mappers";
 
 describe("Given the getPostById method to PostClient", () => {

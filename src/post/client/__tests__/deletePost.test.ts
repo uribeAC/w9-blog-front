@@ -1,4 +1,4 @@
-import { huevosRotosBruc159PostDto } from "../../dto/fixturesDto";
+import { huevosRotosBruc159PostDto } from "../../fixtures/fixturesDto";
 import { mapPostDtoToPost } from "../../dto/mappers";
 import PostClient from "../PostClient";
 

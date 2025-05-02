@@ -1,4 +1,4 @@
-import { PostDto } from "./types";
+import { PostDto } from "../dto/types";
 
 export const choutaKaladinPostDto: PostDto = {
   _id: "123456789123456789123456",

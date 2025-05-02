@@ -1,5 +1,5 @@
 import { mapPostsDtoToPosts } from "../../dto/mappers";
-import { archivoDeLasTormentasComidaPostsDto } from "../../dto/fixturesDto";
+import { archivoDeLasTormentasComidaPostsDto } from "../../fixtures/fixturesDto";
 import PostClient from "../PostClient";
 
 describe("Given the getPosts method of PostClient", () => {

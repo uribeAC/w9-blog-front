@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import PostsPage from "./PostsPage";
 import PostsContextProvider from "../../context/PostsContextProvider";
-import { choutaKaladinPost } from "../../fixtures";
+import { choutaKaladinPost } from "../../fixtures/fixtures";
 import userEvent from "@testing-library/user-event";
 
 const user = userEvent.setup();

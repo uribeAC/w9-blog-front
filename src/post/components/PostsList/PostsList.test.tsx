@@ -4,7 +4,7 @@ import {
   archivoDeLasTormentasComidaPosts,
   choutaKaladinPost,
   panLuzEstelarPost,
-} from "../../fixtures";
+} from "../../fixtures/fixtures";
 import PostsList from "./PostsList";
 import PostsContextProvider from "../../context/PostsContextProvider";
 

@@ -1,4 +1,4 @@
-import { Post, PostData } from "./types";
+import { Post, PostData } from "../types";
 
 export const choutaKaladinPost: Post = {
   id: "chouta123",
