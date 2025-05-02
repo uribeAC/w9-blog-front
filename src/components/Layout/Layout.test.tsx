@@ -1,9 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import Layout from "./Layout";
 import PostsContextProvider from "../../post/context/PostsContextProvider";
-import AppRouterMock from "../../post/mocks/AppRouterMock";
+import AppTestRouter from "../../router/AppTestRouter";
+import { choutaKaladinPost } from "../../post/fixtures";
 
 const user = userEvent.setup();
 window.scrollTo = vitest.fn();
@@ -32,7 +33,7 @@ describe("Given the Layout component", () => {
         <PostsContextProvider>
           <MemoryRouter initialEntries={["/posts"]}>
             <Layout />
-            <AppRouterMock />
+            <AppTestRouter />
           </MemoryRouter>
         </PostsContextProvider>,
       );
@@ -66,7 +67,7 @@ describe("Given the Layout component", () => {
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
               <Layout />
-              <AppRouterMock />
+              <AppTestRouter />
             </MemoryRouter>
           </PostsContextProvider>,
         );
@@ -83,19 +84,26 @@ describe("Given the Layout component", () => {
       });
     });
 
-    describe("And the user clicks the button with label 'detalles del post Chouta callejero de Alethkar 🌯⚔️'", () => {
+    describe("And the user clicks the button '+ Info' del post Chouta callejero de Alethkar 🌯⚔️", () => {
       test("Then it should show Chouta callejero de Alethkar 🌯⚔️ title post inside a heading", async () => {
         render(
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
               <Layout />
-              <AppRouterMock />
+              <AppTestRouter />
             </MemoryRouter>
           </PostsContextProvider>,
         );
 
-        const choutaMoreInfoButton = await screen.findByLabelText(
-          /detalles del post chouta callejero de alethkar 🌯⚔️/i,
+        const choutaTitle = await screen.findByRole("heading", {
+          name: /chouta callejero de alethkar 🌯⚔️/i,
+        });
+
+        const choutaCard = choutaTitle.parentElement!.parentElement!;
+
+        const choutaMoreInfoButton = await within(choutaCard).findByRole(
+          "link",
+          { name: "+ info" },
         );
 
         await user.click(choutaMoreInfoButton);
@@ -106,6 +114,36 @@ describe("Given the Layout component", () => {
 
         expect(choutaPostTitle).toBeVisible();
       });
+
+      test("Then it should show the full content of Chouta callejero de Alethkar 🌯⚔️ post", async () => {
+        render(
+          <PostsContextProvider>
+            <MemoryRouter initialEntries={["/posts"]}>
+              <Layout />
+              <AppTestRouter />
+            </MemoryRouter>
+          </PostsContextProvider>,
+        );
+
+        const choutaTitle = await screen.findByRole("heading", {
+          name: /chouta callejero de alethkar 🌯⚔️/i,
+        });
+
+        const choutaCard = choutaTitle.parentElement!.parentElement!;
+
+        const choutaMoreInfoButton = await within(choutaCard).findByRole(
+          "link",
+          { name: "+ info" },
+        );
+
+        await user.click(choutaMoreInfoButton);
+
+        const choutaPostContent = await screen.findByText(
+          choutaKaladinPost.content,
+        );
+
+        expect(choutaPostContent).toBeVisible();
+      });
     });
 
     describe("And the user clicks the link with label 'Crear post'", () => {
@@ -114,16 +152,16 @@ describe("Given the Layout component", () => {
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
               <Layout />
-              <AppRouterMock />
+              <AppTestRouter />
             </MemoryRouter>
           </PostsContextProvider>,
         );
 
-        const createPostButton = await screen.findByRole("link", {
+        const createPostLink = await screen.findByRole("link", {
           name: /crear post/i,
         });
 
-        await user.click(createPostButton);
+        await user.click(createPostLink);
 
         const createPostTitle = await screen.findByRole("heading", {
           name: /crear nuevo post/i,
