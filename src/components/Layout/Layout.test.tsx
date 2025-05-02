@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import Layout from "./Layout";
 import PostsContextProvider from "../../post/context/PostsContextProvider";
 import AppRouter from "../../router/AppRouter";
+import AppRouterTests from "../../post/mocks/AppRouterTests";
 
 const user = userEvent.setup();
 window.scrollTo = vitest.fn();
@@ -105,6 +106,31 @@ describe("Given the Layout component", () => {
         });
 
         expect(choutaPostTitle).toBeVisible();
+      });
+    });
+
+    describe("And the user clicks the link with label 'Crear post'", () => {
+      test("Then it should show 'Crear nuevo post' inside a heading", async () => {
+        render(
+          <PostsContextProvider>
+            <MemoryRouter initialEntries={["/posts"]}>
+              <Layout />
+              <AppRouterTests />
+            </MemoryRouter>
+          </PostsContextProvider>,
+        );
+
+        const createPostButton = await screen.findByRole("link", {
+          name: /crear post/i,
+        });
+
+        await user.click(createPostButton);
+
+        const createPostTitle = await screen.findByRole("heading", {
+          name: /crear nuevo post/i,
+        });
+
+        expect(createPostTitle).toBeVisible();
       });
     });
   });
