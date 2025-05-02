@@ -5,7 +5,7 @@ import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import AddPostPage from "../pages/AddPostPage/AddPostPage";
 import PostDetailPage from "../pages/PostDetailPage/PostDetailPage";
 
-const AppRouterTests: React.FC = () => {
+const AppRouterMock: React.FC = () => {
   return (
     <Routes>
       <Route index element={<Navigate to="/posts" />} />
@@ -17,4 +17,4 @@ const AppRouterTests: React.FC = () => {
   );
 };
 
-export default AppRouterTests;
+export default AppRouterMock;

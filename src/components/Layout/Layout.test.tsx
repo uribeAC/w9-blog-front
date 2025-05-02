@@ -3,8 +3,7 @@ import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import Layout from "./Layout";
 import PostsContextProvider from "../../post/context/PostsContextProvider";
-import AppRouter from "../../router/AppRouter";
-import AppRouterTests from "../../post/mocks/AppRouterTests";
+import AppRouterMock from "../../post/mocks/AppRouterMock";
 
 const user = userEvent.setup();
 window.scrollTo = vitest.fn();
@@ -33,7 +32,7 @@ describe("Given the Layout component", () => {
         <PostsContextProvider>
           <MemoryRouter initialEntries={["/posts"]}>
             <Layout />
-            <AppRouter />
+            <AppRouterMock />
           </MemoryRouter>
         </PostsContextProvider>,
       );
@@ -67,7 +66,7 @@ describe("Given the Layout component", () => {
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
               <Layout />
-              <AppRouter />
+              <AppRouterMock />
             </MemoryRouter>
           </PostsContextProvider>,
         );
@@ -90,7 +89,7 @@ describe("Given the Layout component", () => {
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
               <Layout />
-              <AppRouter />
+              <AppRouterMock />
             </MemoryRouter>
           </PostsContextProvider>,
         );
@@ -115,7 +114,7 @@ describe("Given the Layout component", () => {
           <PostsContextProvider>
             <MemoryRouter initialEntries={["/posts"]}>
               <Layout />
-              <AppRouterTests />
+              <AppRouterMock />
             </MemoryRouter>
           </PostsContextProvider>,
         );
