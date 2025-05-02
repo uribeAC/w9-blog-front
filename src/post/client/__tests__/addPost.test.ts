@@ -1,9 +1,9 @@
+import { http, HttpResponse } from "msw";
+import { server } from "../../mocks/node";
 import { huevosRotosBruc159PostDto } from "../../fixtures/fixturesDto";
 import { mapPostDtoToPost } from "../../dto/mappers";
 import { huevosRotosBruc159PostData } from "../../fixtures/fixtures";
 import PostClient from "../PostClient";
-import { server } from "../../mocks/node";
-import { http, HttpResponse } from "msw";
 
 describe("Given the addPost method to PostClient", () => {
   describe("When it's called with 'Huevos rotos de Bruc,159' data", () => {
