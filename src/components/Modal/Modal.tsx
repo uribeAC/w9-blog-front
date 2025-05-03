@@ -13,7 +13,12 @@ const Modal: React.FC<ModalProps> = ({ action, text }) => {
       <button className="modal-background" onClick={action} />
       <main className="modal">
         <h2 className="modal__text">{text}</h2>
-        <Button action={action} text="X" classModifierName="modal" />
+        <Button
+          action={action}
+          text="X"
+          classModifierName="modal"
+          aria-label="cerrar modal"
+        />
       </main>
     </>
   );
