@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import PostsContextStructure from "../types";
+import { ContextStructure } from "../types";
 import { PostsContext } from "../PostsContext";
 
-const usePostsContext = (): PostsContextStructure => {
+const usePostsContext = (): ContextStructure => {
   const context = useContext(PostsContext);
 
   if (!context) {
