@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import PostsPage from "./PostsPage";
 import PostsContextProvider from "../../context/PostsContextProvider";
@@ -56,9 +56,12 @@ describe("Given the PostsPage component", () => {
 
       expect(postTitle).toBeVisible();
 
-      const deleteButtons = await screen.findAllByLabelText(/eliminar post/i);
+      const choutaCard = postTitle.parentElement!.parentElement!;
 
-      await user.click(deleteButtons[0]);
+      const deleteButton =
+        await within(choutaCard).findByLabelText(/eliminar post/i);
+
+      await user.click(deleteButton);
 
       const deletedPostTitle = await screen.queryByRole("heading", {
         name: expectedTitleRegex,

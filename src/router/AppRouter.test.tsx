@@ -8,7 +8,7 @@ import AppRouter from "./AppRouter";
 const user = userEvent.setup();
 window.scrollTo = vitest.fn();
 
-describe("Given the Layout component", () => {
+describe("Given the AppRouter component", () => {
   describe("When it renders in path /posts and the user clicks the button '+ Info' del post Chouta callejero de Alethkar 🌯⚔️", () => {
     test("Then it should show Chouta callejero de Alethkar 🌯⚔️ title post inside a heading", async () => {
       render(
@@ -64,6 +64,36 @@ describe("Given the Layout component", () => {
       );
 
       expect(choutaPostContent).toBeVisible();
+    });
+  });
+
+  describe("When it renders in path /posts and the user clicks the button with label 'eliminar post' from Chouta callejero de Alethkar post", () => {
+    test("Then it should show 'El post ha sido eliminado' inside a heading", async () => {
+      const expectedPostTitle = /chouta callejero de alethkar 🌯⚔️/i;
+
+      render(
+        <PostsContextProvider>
+          <AppRouter />
+        </PostsContextProvider>,
+        { wrapper: MemoryRouter },
+      );
+
+      const choutaTitle = await screen.findByRole("heading", {
+        name: expectedPostTitle,
+      });
+
+      const choutaCard = choutaTitle.parentElement!.parentElement!;
+
+      const deleteButton =
+        await within(choutaCard).findByLabelText(/eliminar post/i);
+
+      await user.click(deleteButton);
+
+      const modalText = await screen.queryByRole("heading", {
+        name: /el post ha sido eliminado/i,
+      });
+
+      expect(modalText).toBeVisible();
     });
   });
 });
