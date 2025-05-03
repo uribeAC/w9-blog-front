@@ -1,6 +1,6 @@
 import { createContext } from "react";
-import PostsContextStructure from "./types";
+import { ContextStructure } from "./types";
 
-export const PostsContext = createContext<PostsContextStructure | null>(null);
+export const PostsContext = createContext<ContextStructure | null>(null);
 
 PostsContext.displayName = "PostsContext";

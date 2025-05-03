@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
-import PostsContextStructure from "../context/types";
+import { PostsContextStructure } from "../context/types";
 import PostClient from "../client/PostClient";
 import { PostsData } from "../client/types";
 import { Post, PostData } from "../types";

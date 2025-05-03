@@ -1,6 +1,6 @@
 import { Post, PostData } from "../types";
 
-interface PostsContextStructure {
+export interface PostsContextStructure {
   posts: Post[];
   postsTotal: number;
   loadPostsByPage: (pageNumber?: number) => Promise<void>;
@@ -9,4 +9,10 @@ interface PostsContextStructure {
   loadPostById: (postId: string) => Promise<Post>;
 }
 
-export default PostsContextStructure;
+export interface ModalContextStructure {
+  modal: boolean;
+  modalText: string;
+  activateModal: (text: string) => void;
+  toggleModal: () => void;
+}
+export type ContextStructure = PostsContextStructure & ModalContextStructure;
