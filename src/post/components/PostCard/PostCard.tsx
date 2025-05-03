@@ -24,7 +24,7 @@ const PostCard: React.FC<PostCardProps> = ({
   },
   index,
 }) => {
-  const { deletePost } = usePostsContext();
+  const { deletePost, activateModal } = usePostsContext();
 
   const loadingType = index <= 2 ? "eager" : "lazy";
 
@@ -41,7 +41,10 @@ const PostCard: React.FC<PostCardProps> = ({
       />
       <div className="post__buttons">
         <Button
-          action={() => deletePost(id)}
+          action={() => {
+            deletePost(id);
+            activateModal("El post ha sido eliminado");
+          }}
           text="X"
           classModifierName="delete"
           aria-label="eliminar post"
