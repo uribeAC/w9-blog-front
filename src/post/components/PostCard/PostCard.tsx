@@ -59,18 +59,18 @@ const PostCard: React.FC<PostCardProps> = ({
           <span className="post__author">{author}</span>
         </h3>
         <p className="post__content">{previewContent}...</p>
-        <div className="post__info-bottom">
+        <footer className="post__info-footer">
           <ul className="post__tags">
             {previewTags.map((tag) => (
-              <li key={tag}>
-                <span className="post__tag">#{tag}</span>
+              <li key={tag} className="post__tag">
+                #{tag}
               </li>
             ))}
           </ul>
           <span className="post__date">
             {publishDate.toLocaleDateString("es-ES")}
           </span>
-        </div>
+        </footer>
       </div>
     </article>
   );

@@ -22,7 +22,7 @@
 
   @media (width > 500px) {
     width: revert-layer;
-    scale: 1;
+    aspect-ratio: 1;
   }
 }
 
@@ -73,7 +73,7 @@
 .post__info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
   gap: 20px;
 }
 
@@ -97,13 +97,19 @@
   font-size: 1rem;
 }
 
+.post__date {
+  align-self: end;
+  margin-left: auto;
+}
+
 .post__content {
   font-size: 1rem;
   font-weight: 100;
 }
 
-.post__info-bottom {
+.post__info-footer {
   display: flex;
+  margin-top: auto;
   gap: 20px;
   flex-direction: column;
   justify-content: space-between;
@@ -124,6 +130,7 @@
 }
 
 .post__tag {
+  align-self: flex-start;
   color: var(--secondary-color);
   background-color: var(--primary-color);
   border-radius: 5px;
