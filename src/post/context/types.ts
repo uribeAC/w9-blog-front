@@ -7,6 +7,10 @@ interface PostsContextStructure {
   createPost: (postData: PostData) => Promise<void>;
   deletePost: (postId: string) => Promise<void>;
   loadPostById: (postId: string) => Promise<Post>;
+  modal: boolean;
+  modalText: string;
+  activateModal: (text: string) => void;
+  toggleModal: () => void;
 }
 
 export default PostsContextStructure;
