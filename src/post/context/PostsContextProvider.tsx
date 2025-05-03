@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { PostsContext } from "./PostsContext";
-import PostsContextStructure from "./types";
+import { ContextStructure } from "./types";
 import usePosts from "../hooks/usePosts";
 import useModal from "../hooks/useModal";
 
@@ -16,7 +16,7 @@ const PostsContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const { activateModal, modal, modalText, toggleModal } = useModal();
 
-  const postsContextValue: PostsContextStructure = {
+  const postsContextValue: ContextStructure = {
     posts,
     postsTotal,
     loadPostsByPage,

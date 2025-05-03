@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { ModalContextStructure } from "../context/types";
 
-const useModal = () => {
+const useModal = (): ModalContextStructure => {
   const [modal, setModal] = useState(true);
   const [modalText, setModalText] = useState<string>("");
 
