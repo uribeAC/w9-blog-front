@@ -29,7 +29,9 @@
 .post-form__control {
   padding: 10px;
   font-size: 1.2rem;
+  background-color: #ffffff17;
   border-bottom: 2px solid var(--primary-color);
+  border-radius: 8px 8px 0px 0px;
 
   &:focus {
     transition: 0.5s;
@@ -55,11 +57,13 @@
   border-radius: 5px;
   font-weight: bold;
   color: #fff;
-  background-color: #ff0000;
+  background-color: #ad0000;
+  font-size: 1.2rem;
 
-  @media (width < 500px) {
+  @media (width < 550px) {
     right: 20px;
     bottom: 65px;
+    font-size: 1rem;
   }
 
   @media (width < 350px) {
