@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { PostData } from "../../types";
 import "./PostForm.css";
+import usePostsContext from "../../context/hooks/usePostsContext";
 
 interface PostFormProps {
   action: (postData: PostData) => Promise<void>;
 }
 
 const PostForm: React.FC<PostFormProps> = ({ action }) => {
+  const { activateModal } = usePostsContext();
+
   const initialPostData: PostData = {
     author: "",
     content: "",
@@ -52,6 +55,7 @@ const PostForm: React.FC<PostFormProps> = ({ action }) => {
       await action(postData);
 
       navigate("/");
+      activateModal("¡Post creado!");
     } catch {
       setErrorMessage("Error al crear el post, ya existe");
     }
