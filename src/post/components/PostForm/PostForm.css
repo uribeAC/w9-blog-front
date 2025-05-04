@@ -26,6 +26,16 @@
   font-size: 1.2rem;
 }
 
+.post-form__text--double {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.post-form__text--small {
+  font-size: 0.9rem;
+}
+
 .post-form__control {
   padding: 10px;
   font-size: 1.2rem;
