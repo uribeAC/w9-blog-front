@@ -31,8 +31,8 @@ const PostCard: React.FC<PostCardProps> = ({
   return (
     <article className="post">
       <img
-        srcSet={`${smallImageUrl} 300w, ${imageUrl}420w`}
-        sizes="(min-width: 490px), (max-width: 500px) 420px, 300px"
+        srcSet={`${smallImageUrl} 300w, ${imageUrl} 420w`}
+        sizes="(max-width: 500px) 420px, (min-width: 501px) 300px"
         src={imageUrl}
         alt={imageAlt}
         className="post__image"

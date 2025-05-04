@@ -36,8 +36,8 @@ const PostDetailPage: React.FC = () => {
       <div className="post-detail">
         <div className="post-detail__wrapper">
           <img
-            srcSet={`${post.smallImageUrl} 300w, ${post.imageUrl}500w, ${imageUrl}700w`}
-            sizes="(max-width: 350px)300px, (max-width: 500px)500px, (min-width: 501px)700px, 300px"
+            srcSet={`${post.smallImageUrl} 300w, ${post.imageUrl} 500w, ${imageUrl} 700w`}
+            sizes="(max-width: 350px) 300px, (max-width: 500px) 420px, (min-width: 501px) 700px"
             src={imageUrl}
             className="post-detail__image"
             alt={post.imageAlt}
