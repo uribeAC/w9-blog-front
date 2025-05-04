@@ -185,6 +185,48 @@ describe("Given the AppRouter component", () => {
 
         expect(modalText).toBeVisible();
       });
+
+      describe("And the user clicks outside the modal", () => {
+        test("Then it should not show anymore 'Post creado' inside a heading", async () => {
+          render(
+            <PostsContextProvider>
+              <MemoryRouter initialEntries={["/add-post"]}>
+                <AppRouter />
+              </MemoryRouter>
+            </PostsContextProvider>,
+          );
+
+          const titleTextBox = screen.getByLabelText(/título/i);
+          const authorTextBox = screen.getByLabelText(/autor\/a/i);
+          const imageTextBox = screen.getByLabelText(/imagen url/i);
+          const contentTextBox = screen.getByLabelText(/contenido/i);
+
+          await user.type(titleTextBox, "Croquetas de la abuela");
+          await user.type(authorTextBox, "Alex");
+          await user.type(imageTextBox, "https://www.google.com/");
+          await user.type(contentTextBox, "Croquetillas");
+
+          const submitButton = screen.getByRole("button", {
+            name: /crear post/i,
+          });
+
+          await user.click(submitButton);
+
+          const closeButtons = screen.getAllByLabelText(/cerrar modal/i);
+
+          const backgroundCloseButton = closeButtons.filter(
+            (button) => button.textContent !== "X",
+          );
+
+          await user.click(backgroundCloseButton[0]);
+
+          const modalText = screen.queryByRole("heading", {
+            name: /post creado/i,
+          });
+
+          expect(modalText).not.toBeInTheDocument();
+        });
+      });
     });
   });
 });

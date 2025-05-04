@@ -10,7 +10,11 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ action, text }) => {
   return (
     <>
-      <button className="modal-background" onClick={action} />
+      <button
+        className="modal-background"
+        onClick={action}
+        aria-label="cerrar modal"
+      />
       <main className="modal">
         <h2 className="modal__text">{text}</h2>
         <Button
