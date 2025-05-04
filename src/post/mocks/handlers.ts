@@ -22,13 +22,13 @@ export const handlers = [
     if (currentPage === "2") {
       return HttpResponse.json<{ posts: PostDto[]; postsTotal: number }>({
         posts: archivoDeLasTormentasComidaPostsPage2Dto,
-        postsTotal: archivoDeLasTormentasComidaPostsPage2Dto.length,
+        postsTotal: 7,
       });
     }
 
     return HttpResponse.json<{ posts: PostDto[]; postsTotal: number }>({
       posts: archivoDeLasTormentasComidaPostsDto,
-      postsTotal: archivoDeLasTormentasComidaPostsDto.length,
+      postsTotal: 7,
     });
   }),
 

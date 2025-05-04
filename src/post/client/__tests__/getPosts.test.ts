@@ -18,15 +18,16 @@ describe("Given the getPosts method of PostClient", () => {
       );
     });
 
-    test("Then it should return 2 to as the total number of posts", async () => {
+    test("Then it should return 7 to as the total number of posts", async () => {
+      const expectedPostsTotal = 7;
+
       const postClient = new PostClient();
 
       const postsPage = await postClient.getPosts();
 
-      const posts = postsPage.posts;
       const postsTotal = postsPage.postsTotal;
 
-      expect(postsTotal).toBe(posts.length);
+      expect(postsTotal).toBe(expectedPostsTotal);
     });
   });
 

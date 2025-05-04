@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal from "./Modal";
 import PostsContextProvider from "../../post/context/PostsContextProvider";
@@ -28,7 +28,11 @@ describe("Given the Modal component", () => {
         wrapper: PostsContextProvider,
       });
 
-      const closeButton = screen.getByLabelText(/cerrar modal/i);
+      const modalText = screen.getByRole("heading", { name: /post creado/i });
+
+      const modal = modalText.parentElement!;
+
+      const closeButton = within(modal).getByLabelText(/cerrar modal/i);
 
       expect(closeButton).toBeVisible();
       expect(closeButton.textContent).toBe("X");
@@ -40,7 +44,11 @@ describe("Given the Modal component", () => {
           wrapper: PostsContextProvider,
         });
 
-        const closeButton = screen.getByLabelText(/cerrar modal/i);
+        const modalText = screen.getByRole("heading", { name: /post creado/i });
+
+        const modal = modalText.parentElement!;
+
+        const closeButton = within(modal).getByLabelText(/cerrar modal/i);
 
         await user.click(closeButton);
 
