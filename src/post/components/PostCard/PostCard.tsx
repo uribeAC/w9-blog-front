@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
 import { Post } from "../../types";
-import "./PostCard.css";
 import Button from "../../../components/Button/Button";
 import usePostsContext from "../../context/hooks/usePostsContext";
+import "./PostCard.css";
 
 interface PostCardProps {
   post: Post;
@@ -32,7 +32,8 @@ const PostCard: React.FC<PostCardProps> = ({
     <article className="post">
       <img
         srcSet={`${smallImageUrl} 300w, ${imageUrl}420w`}
-        sizes="(min-width: 490px and max-width: 500px) 420px, 300px"
+        sizes="(min-width: 490px), (max-width: 500px) 420px, 300px"
+        src={imageUrl}
         alt={imageAlt}
         className="post__image"
         width={300}

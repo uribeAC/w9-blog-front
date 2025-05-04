@@ -1,4 +1,4 @@
-import React, { ComponentProps, PropsWithChildren } from "react";
+import React, { ComponentProps } from "react";
 import "./Button.css";
 
 type AllButtonProps = ComponentProps<"button">;
@@ -8,7 +8,7 @@ interface ButtonProps extends AllButtonProps {
   action: () => void;
 }
 
-const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
+const Button: React.FC<ButtonProps> = ({
   classModifierName,
   action,
   ...buttonProps

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { PostData } from "../../types";
-import "./PostForm.css";
 import usePostsContext from "../../context/hooks/usePostsContext";
+import "./PostForm.css";
 
 interface PostFormProps {
   action: (postData: PostData) => Promise<void>;
@@ -133,8 +133,14 @@ const PostForm: React.FC<PostFormProps> = ({ action }) => {
           />
         </div>
         <div className="post-form__group">
-          <label htmlFor="tags" className="post-form__text">
+          <label
+            htmlFor="tags"
+            className="post-form__text post-form__text--double"
+          >
             Etiquetas:
+            <span className="post-form__text--small">
+              (Separar las etiquetas con una coma)
+            </span>
           </label>
           <input
             type="text"
