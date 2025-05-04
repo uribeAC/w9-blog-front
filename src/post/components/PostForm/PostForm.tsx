@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { PostData } from "../../types";
-import "./PostForm.css";
 import usePostsContext from "../../context/hooks/usePostsContext";
+import "./PostForm.css";
 
 interface PostFormProps {
   action: (postData: PostData) => Promise<void>;

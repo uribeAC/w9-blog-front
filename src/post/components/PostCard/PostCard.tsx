@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
 import { Post } from "../../types";
-import "./PostCard.css";
 import Button from "../../../components/Button/Button";
 import usePostsContext from "../../context/hooks/usePostsContext";
+import "./PostCard.css";
 
 interface PostCardProps {
   post: Post;
