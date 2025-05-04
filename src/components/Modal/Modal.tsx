@@ -19,10 +19,11 @@ const Modal: React.FC<ModalProps> = ({ action, text }) => {
         <h2 className="modal__text">{text}</h2>
         <Button
           action={action}
-          text="X"
           classModifierName="modal"
           aria-label="cerrar modal"
-        />
+        >
+          X
+        </Button>
       </main>
     </>
   );

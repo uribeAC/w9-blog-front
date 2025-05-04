@@ -45,10 +45,11 @@ const PostCard: React.FC<PostCardProps> = ({
             deletePost(id);
             activateModal("El post ha sido eliminado");
           }}
-          text="X"
           classModifierName="delete"
           aria-label="eliminar post"
-        />
+        >
+          X
+        </Button>
         <Link to={`/post/${id}`} className="post__info-link">
           + info
         </Link>

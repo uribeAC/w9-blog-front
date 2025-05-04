@@ -3,9 +3,9 @@ import { ModalContextStructure } from "../context/types";
 
 const useModal = (): ModalContextStructure => {
   const [modal, setModal] = useState(false);
-  const [modalText, setModalText] = useState<string>("");
+  const [modalText, setModalText] = useState("");
 
-  const toggleModal = () => setModal(!modal);
+  const toggleModal = () => setModal((modal) => !modal);
 
   const activateModal = (text: string) => {
     setModalText(text);
