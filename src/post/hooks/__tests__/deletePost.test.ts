@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
-import usePosts from "../usePosts";
 import { act } from "react";
+import usePosts from "../usePosts";
 import { brochetasShinovarPostDto } from "../../fixtures/fixturesDto";
 
 describe("Given the deletePost function", () => {

@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
-import usePosts from "../usePosts";
 import { act } from "react";
+import usePosts from "../usePosts";
 import { huevosRotosBruc159PostData } from "../../fixtures/fixtures";
 
 describe("Given the createPost function", () => {
