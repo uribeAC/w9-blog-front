@@ -10,11 +10,9 @@ describe("Given the Button component", () => {
   describe("When it receives 'Click for fun' and an action", () => {
     test("Then it should show a 'Click for fun' button", () => {
       render(
-        <Button
-          text={expectedButtonText}
-          action={() => {}}
-          classModifierName="test"
-        />,
+        <Button action={() => {}} classModifierName="test">
+          {expectedButtonText}
+        </Button>,
       );
 
       const buttonElement = screen.getByRole("button", {
@@ -30,11 +28,9 @@ describe("Given the Button component", () => {
       const action = vitest.fn();
 
       render(
-        <Button
-          text={expectedButtonText}
-          action={action}
-          classModifierName="test"
-        />,
+        <Button action={action} classModifierName="test">
+          {expectedButtonText}
+        </Button>,
       );
 
       const buttonElement = screen.getByRole("button", {

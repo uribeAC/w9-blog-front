@@ -5,25 +5,21 @@ type AllButtonProps = ComponentProps<"button">;
 
 interface ButtonProps extends AllButtonProps {
   classModifierName: string;
-  text: string;
   action: () => void;
 }
 
 const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   classModifierName,
-  text,
   action,
-  ...button
+  ...buttonProps
 }) => {
   return (
     <button
       type="button"
       className={`button button--${classModifierName}`}
       onClick={action}
-      {...button}
-    >
-      {text}
-    </button>
+      {...buttonProps}
+    ></button>
   );
 };
 
