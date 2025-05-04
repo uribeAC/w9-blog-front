@@ -44,78 +44,78 @@ describe("Given the PostForm component", () => {
       expect(submitButton).toBeVisible();
       expect(submitButton).toBeDisabled();
     });
-  });
 
-  describe("And the user types 'Huevos fritos' in 'Título' text box", () => {
-    test("Then it should show 'Huevos fritos' in 'Título' text box", async () => {
-      const postTitle = "Huevos fritos";
-      const expectedTitleRegex = /título/i;
-      render(
-        <PostsContextProvider>
-          <PostForm action={action} />
-        </PostsContextProvider>,
-        { wrapper: MemoryRouter },
-      );
+    describe("And the user types 'Huevos fritos' in 'Título' text box", () => {
+      test("Then it should show 'Huevos fritos' in 'Título' text box", async () => {
+        const postTitle = "Huevos fritos";
+        const expectedTitleRegex = /título/i;
+        render(
+          <PostsContextProvider>
+            <PostForm action={action} />
+          </PostsContextProvider>,
+          { wrapper: MemoryRouter },
+        );
 
-      const titleTextBox = screen.getByLabelText(expectedTitleRegex);
+        const titleTextBox = screen.getByLabelText(expectedTitleRegex);
 
-      await user.type(titleTextBox, postTitle);
+        await user.type(titleTextBox, postTitle);
 
-      expect(titleTextBox).toHaveValue(postTitle);
+        expect(titleTextBox).toHaveValue(postTitle);
+      });
     });
 
-    test("Then it should show a 'Crear post' button enabled", async () => {
-      render(
-        <PostsContextProvider>
-          <PostForm action={action} />
-        </PostsContextProvider>,
-        { wrapper: MemoryRouter },
-      );
+    describe("And the user fills the form and clicks on 'Crear post' button", () => {
+      test("Then it should show a 'Crear post' button enabled", async () => {
+        render(
+          <PostsContextProvider>
+            <PostForm action={action} />
+          </PostsContextProvider>,
+          { wrapper: MemoryRouter },
+        );
 
-      const titleTextBox = screen.getByLabelText(/título/i);
-      const authorTextBox = screen.getByLabelText(/autor\/a/i);
-      const imageTextBox = screen.getByLabelText(/imagen url/i);
-      const contentTextBox = screen.getByLabelText(/contenido/i);
+        const titleTextBox = screen.getByLabelText(/título/i);
+        const authorTextBox = screen.getByLabelText(/autor\/a/i);
+        const imageTextBox = screen.getByLabelText(/imagen url/i);
+        const contentTextBox = screen.getByLabelText(/contenido/i);
 
-      await user.type(titleTextBox, "a");
-      await user.type(authorTextBox, "a");
-      await user.type(imageTextBox, "https://www.google.com/");
-      await user.type(contentTextBox, "a");
+        await user.type(titleTextBox, "Croquetas de la abuela: lo mejor");
+        await user.type(authorTextBox, "Alex Uribe");
+        await user.type(imageTextBox, "https://www.google.com/");
+        await user.type(contentTextBox, "Musho texto");
 
-      const submitButton = screen.getByRole("button", {
-        name: /crear post/i,
+        const submitButton = screen.getByRole("button", {
+          name: /crear post/i,
+        });
+
+        expect(submitButton).toBeEnabled();
       });
 
-      expect(submitButton).toBeEnabled();
-    });
-  });
+      test("Then it should call the button action", async () => {
+        render(
+          <PostsContextProvider>
+            <PostForm action={action} />
+          </PostsContextProvider>,
+          { wrapper: MemoryRouter },
+        );
 
-  describe("And the user click on 'Crear post' button", () => {
-    test("Then it should call the button action", async () => {
-      render(
-        <PostsContextProvider>
-          <PostForm action={action} />
-        </PostsContextProvider>,
-        { wrapper: MemoryRouter },
-      );
+        const titleTextBox = screen.getByLabelText(/título/i);
+        const authorTextBox = screen.getByLabelText(/autor\/a/i);
+        const imageTextBox = screen.getByLabelText(/imagen url/i);
+        const contentTextBox = screen.getByLabelText(/contenido/i);
 
-      const titleTextBox = screen.getByLabelText(/título/i);
-      const authorTextBox = screen.getByLabelText(/autor\/a/i);
-      const imageTextBox = screen.getByLabelText(/imagen url/i);
-      const contentTextBox = screen.getByLabelText(/contenido/i);
+        await user.type(titleTextBox, "Croquetas de la abuela: lo mejor");
+        await user.type(authorTextBox, "Alex Uribe");
+        await user.type(imageTextBox, "https://www.google.com/");
+        await user.type(contentTextBox, "Musho texto");
 
-      await user.type(titleTextBox, "a");
-      await user.type(authorTextBox, "a");
-      await user.type(imageTextBox, "https://www.google.com/");
-      await user.type(contentTextBox, "a");
+        const submitButton = screen.getByRole("button", {
+          name: /crear post/i,
+        });
 
-      const submitButton = screen.getByRole("button", {
-        name: /crear post/i,
+        await user.click(submitButton);
+
+        expect(action).toHaveBeenCalled();
       });
-
-      await user.click(submitButton);
-
-      expect(action).toHaveBeenCalled();
     });
   });
 });

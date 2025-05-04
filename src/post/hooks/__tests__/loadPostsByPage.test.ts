@@ -1,6 +1,6 @@
+import { renderHook } from "@testing-library/react";
 import { act } from "react";
 import usePosts from "../usePosts";
-import { renderHook } from "@testing-library/react";
 
 describe("Given the loadPostsByPage function", () => {
   describe("When it's called with page numner 2", () => {
